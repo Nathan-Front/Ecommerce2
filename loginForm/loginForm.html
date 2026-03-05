@@ -1,0 +1,38 @@
+<!--For 431px and above-->
+<form class="login-accnt-page" id="login-accnt-btn" novalidate>
+  <label for="uname"><b>Username</b></label>
+  <input
+    id="input-login-uName"
+    type="text"
+    placeholder="input Username"
+    name="uname"
+  />
+  <label for="pass"><b>Password</b></label>
+  <div class="pass-input-field">
+    <input
+      id="input-login-pass"
+      type="password"
+      placeholder="input password"
+      name="pass"
+    />
+    <i
+      class="fa-solid fa-eye toggle-password"
+      data-target="input-login-pass"
+      role="button"
+      tabindex="0"
+      id="eye"
+    ></i>
+  </div>
+  <div class="login-create">
+    <button type="button" id="login-to-main-button">Login</button>
+    <button type="button" id="link-create-Btn">Dont have account yet?</button>
+  </div>
+  <label class="login-remember-me">
+    <input id="remember-me" type="checkbox" checked="checked" name="remember" />
+    <span>Remember me</span>
+  </label>
+  <div class="cancel-forgot-container">
+    <button type="button" id="login-close-createAccnt-page">Cancel</button>
+    <p>Forgot <a id="forgot-password">password?</a></p>
+  </div>
+</form>

@@ -1,0 +1,37 @@
+<form class="create-accnt-page" id="create-accnt-btn" novalidate>
+  <label for="uname"><b>Username</b></label>
+  <input
+    id="input-uName"
+    type="text"
+    placeholder="input Username"
+    name="uname"
+  />
+  <label for="pass"><b>Password</b></label>
+  <div class="pass-input-field">
+    <input
+      id="input-pass"
+      type="password"
+      placeholder="input password"
+      name="pass"
+    />
+    <i
+      class="fa-solid fa-eye toggle-password"
+      data-target="input-pass"
+      role="button"
+      tabindex="0"
+      id="eye2"
+    ></i>
+  </div>
+  <label for="pass"><b>E-mail address</b></label>
+  <input
+    id="input-email"
+    type="text"
+    placeholder="input password"
+    name="pass"
+  />
+  <small class="error"></small>
+  <div class="login-create">
+    <button>Create account</button>
+    <button id="close-createAccnt-page">Cancel</button>
+  </div>
+</form>

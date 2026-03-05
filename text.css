@@ -1,0 +1,150 @@
+
+.main-panel-lower{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+.lower-panel-title{
+    width: 100%;
+}
+.item-title-category-lower{
+    margin: 2% 0% 2% 2%;
+    color: #4682b4;
+}
+.lower-panel-content{
+    width: 100%;
+    min-width: 60%;
+    min-height: 60%;
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+
+}
+.item-panel-lower{
+    width: 25%;
+    height: 70%;
+    min-width: 20%;
+    max-width: 23%;
+    min-height: 30%;
+    max-height: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.item-panel-lower div {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    
+}
+.item-panel-lower div h4{
+    width: fit-content;
+    margin: 5% 0% 5% 7%;
+    font-size: 1.2em;
+}
+.item-panel-lower div:nth-child(2){
+    justify-content: center;
+    gap: 6%;
+    width: 100%;
+    height: auto;
+}
+.item-panel-lower div:last-child{
+    width: fit-content;
+    margin: 5% 0% 5% 6%;
+    display: flex;
+    align-self: flex-start;
+}
+.item-panel-lower div a{
+    text-decoration: none;
+    font-size: 0.8em;
+}
+.item-panel-lower div button{
+    width: 40%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+    border: none;
+    background-color: transparent;
+}
+.item-panel-lower div button img{
+    width: 100%;
+    height: 100%;
+}
+.item-panel-lower div button:nth-child(3),
+.item-panel-lower div button:nth-child(4){
+   margin: 6% 0% 5% 0%;
+}
+
+
+
+footer{
+    width: 100%;
+    background-color: #4682b4;
+    margin: 2% 0% 0% 0%;
+}
+footer div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+footer div button{
+    width: 100%;
+    height: 15%;
+    border: none;
+    background-color: #1e90ff;
+    padding: 1% 0%;
+    font-size: 1em;
+}
+.contact-div{
+    display: flex;
+    flex-direction: row;
+    margin: 5% auto;
+    justify-content:center;
+    align-content: center;
+    gap: 2%;
+}
+.contact-div div{
+    width: 25%;
+}
+.contact-div img{
+    width:40%;
+    margin: 0% auto;
+}
+.contact-div-contents{
+    display: flex;
+    align-self: center;
+}
+.contact-div-contents a{
+    text-decoration: none;
+    font-size: 0.8em;
+}
+.alright-reserve{
+    width: 100%;
+    font-size: 0.6em;
+    padding: 1% 0%;
+    border-top: 1px #87ceeb solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+.alright-reserve p{
+    width: 30%;
+    text-align: right;
+}
+.alright-reserve a{
+    width: 2%;
+    height: 2%;
+}
+.alright-reserve a img{
+    width: 100%;
+}
