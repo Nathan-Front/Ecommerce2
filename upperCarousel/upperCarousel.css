@@ -1,38 +1,46 @@
 
 .main-panel-upper{
-    width: 100%;
+    height: clamp(300px, 60vw, 600px);
+    overflow: hidden;
     position: relative;
     display: flex;
-    overflow: hidden;
+    flex-direction: column;
 }
-.main-panel-upper> div> img{
+.upper-carousel-wrap{
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+}
+.upper-carousel-wrap> div> img{
     width: 100%;
     min-width: 100vw;
+    margin-top: 10vh;
     height: clamp(300px, 80vh, 500px);
 }
 .main-panel-upper-h2{
     font-size: clamp(0.9rem, 2vw, 1.5rem);
     width: 90%;
     position: absolute;  
-    margin: 9rem 0 0 4rem;
+    margin: 20rem 0 0 4rem;
 }
-.main-panel-upper div p{
+.upper-carousel-wrap> div> p{
     font-size: clamp(0.7rem, 1.5vw, 1.2rem);
     font-weight: bolder;
     width: 90%;
     position: absolute;  
-    margin: 19rem 0 0 4rem;
+    margin: 22rem 0 0 4rem;
 }
 .upper-carousel-button{
     padding: clamp(15px, 2vw, 40px) clamp(20px, 3vw, 80px);
     font-size: clamp(1rem, 1.5vw, 3rem);
     border: none;
     padding: 14px 30px;
-    border-radius: 2em;
+    border-radius: 0.25em;
     font-weight: bold;
     transition: 0.3s;
     position: absolute;  
-    margin: 24rem 0 0 4rem;
+    margin: 25rem 0 0 4rem;
     background-color: #ff7a18;
     color: white;
 }
@@ -41,7 +49,28 @@
     cursor: pointer;
      background-color: #e85d04;
 }
-
+@media only screen and (max-width: 599px){
+    .main-panel-upper-h2,
+    .upper-carousel-wrap> div> p{
+        display: none;
+    }
+    .upper-carousel-button{
+        padding: 10px 20px;
+        margin: 14rem 0 0 2rem;
+    }
+}
+@media (min-width: 600px) and (max-width:768px){
+    .main-panel-upper-h2{
+        margin: 15rem 0 0 2rem;
+    }
+    .upper-carousel-wrap> div> p{
+        margin: 17rem 0 0 2rem;
+    }
+    .upper-carousel-button{
+         padding: 12px 25px;
+        margin: 20rem 0 0 2rem;
+    }
+}
 .main-panel-upper-first{
 
     height: 20%;
@@ -55,7 +84,6 @@
     flex-direction: column;
 }
 .main-panel-upper-third{
-
     color: white;
     text-shadow: 1px 1px 0 #333,
         -1px -1px 0 #333,
@@ -67,13 +95,16 @@
     flex-direction: column;
 }
 .upper-carousel{
-    display: flex;
-    height: 20%;
-    animation-name: fadeIn;
-    animation-duration: 1.5s;
+    position: absolute;
+     inset: 0;
+     opacity: 0;
+     display: flex;
 }
 .upper-carousel.upper-display{
-    display: flex;
+    opacity: 1;
+}
+.upper-carousel.upper-hide{
+    opacity: 0;
 }
 .upper-carousel-buttons{
     display: flex;
@@ -94,17 +125,4 @@
         2px 2px 5px rgba(0,0,0,0.65);
     transform: translateY(-50%);
     cursor: pointer;
-}
-.left-upper{
-    left: 1%;
-}
-.right-upper{
-    right: 1%;
-}
-@keyframes fadeIn{
-    from{opacity: 0.5;}
-    to{opacity: 1;}
-}
-.mobile-slider-dots{
-    display: none;
 }
