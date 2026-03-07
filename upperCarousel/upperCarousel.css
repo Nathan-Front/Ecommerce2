@@ -32,10 +32,9 @@
     margin: 22rem 0 0 4rem;
 }
 .upper-carousel-button{
-    padding: clamp(15px, 2vw, 40px) clamp(20px, 3vw, 80px);
+    padding: clamp(10px, 2vw, 15px) clamp(20px, 3vw, 30px);
     font-size: clamp(1rem, 1.5vw, 3rem);
     border: none;
-    padding: 14px 30px;
     border-radius: 0.25em;
     font-weight: bold;
     transition: 0.3s;
@@ -44,19 +43,20 @@
     background-color: #ff7a18;
     color: white;
 }
-
 .upper-carousel-button:hover{
     cursor: pointer;
      background-color: #e85d04;
 }
 @media only screen and (max-width: 599px){
+    .upper-carousel-wrap> div> img{
+        margin-top: 6vh;
+    }
     .main-panel-upper-h2,
     .upper-carousel-wrap> div> p{
         display: none;
     }
     .upper-carousel-button{
-        padding: 10px 20px;
-        margin: 14rem 0 0 2rem;
+        margin: 9rem 0 0 2rem;
     }
 }
 @media (min-width: 600px) and (max-width:768px){
@@ -66,20 +66,15 @@
     .upper-carousel-wrap> div> p{
         margin: 17rem 0 0 2rem;
     }
-    .upper-carousel-button{
-         padding: 12px 25px;
+    .upper-carousel-button{ 
         margin: 20rem 0 0 2rem;
     }
 }
 .main-panel-upper-first{
-
-    height: 20%;
     width: 100%;
     flex-direction: column;
 }
 .main-panel-upper-second{
- 
-    height: 20%;
     width: 100%;
     flex-direction: column;
 }

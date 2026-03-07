@@ -1,0 +1,226 @@
+
+.outdoor-panel-item{
+    max-width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-rows: max-content;
+    background-color: white;
+}
+.adventure-item,
+.gear-up-item,
+.gadget-item,
+.stylish-item{
+    height: auto;
+}
+.item-panel-lower-link-2{
+    width: auto;
+    margin: 5% 0% 5% 8%;
+}
+.item-panel-lower-link-2> a{
+    text-decoration: none;
+    font-size: 0.8em;
+}
+.stylish-item> div:last-child{
+    width: auto;
+    margin: 0;
+}
+.adventure-item{
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    gap: 6%;
+    font-size: 0.8em;
+}
+.adventure-item > *{
+    flex: 1;
+}
+.adventure-item button{
+    border: transparent;
+    background-color: transparent;
+    height: auto;
+}
+.adventure-item> div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.adventure-item> div> button> img,
+.gear-up-item> button> img,
+.gadget-item> button> img,
+.stylish-item> button> img{
+    border-radius: 0.25em;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.adventure-1{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    margin: 0%;
+    padding: 0;
+    height: 100%;
+    width: 95%;
+}
+.adventure-item> div:last-child{
+    display: flex;
+    gap: 6%;
+}
+.adventure-2{
+    margin: 0%;
+    padding: 0;
+    height: 100%;
+    width: 95%;
+}
+.adventure-3{
+    padding: 0;
+    align-items: start;
+    height: 100%;
+    width: 95%;
+}
+.adventure-2,
+.adventure-3{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.adventure-1> img{
+    max-width: 90%;
+    aspect-ratio: 3/5;
+    object-fit: cover;
+    align-self: flex-end;
+    margin: auto 0;
+}
+.adventure-2> img,
+.adventure-3> img{
+    width: 90%;
+    aspect-ratio: 7.2/5;
+    object-fit: cover;
+}
+.adventure-1> span{
+    margin: 5px auto 0 auto;
+}
+.adventure-2> span,
+.adventure-3> span{
+    padding-right: 5%;
+    margin: 5px auto 0 auto;
+   
+}
+.gear-up-item{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2%;
+     margin: 0;
+}
+.gear-up-title{
+    margin-left: 8%;
+}   
+.gear-up-item> button{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    align-items: center;
+    justify-items: center;
+}
+.gear-up-item> button> img{
+    width: 90%;
+    aspect-ratio:3/5;
+    object-fit:cover;
+}
+.gear-up-item button:first-child{
+    align-items: end;
+}
+.gear-up-item button:first-child> span{
+   margin: 5px auto 0 auto;
+}
+.gear-up-item button:last-child{
+    align-items: start;
+}
+.gear-up-item button:last-child> span{
+    margin: 5px auto 0 auto;
+}
+
+.gadget-item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6%;
+}
+.gadget-item> button{
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background-color: transparent;
+    align-items: center;
+    margin: 0% auto;
+    flex-wrap: wrap;
+}
+.gadget-item> button> img{
+    width: 100%;
+    aspect-ratio: 15.3/5;
+    object-fit: cover;
+    margin: 0;
+    align-items: start;
+}
+.gadget-item> button> span{
+    margin: 5px auto 0 auto;
+}
+.stylish-item{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 2%;
+    row-gap: 6%;
+}
+.stylish-item> button{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background-color: transparent;
+    
+    justify-items: center;
+}
+.stylish-item> button> img{
+    width: 90%;
+    aspect-ratio: 7.2/5;
+    object-fit: fill;
+}
+.stylish-item> button> span{
+    margin: 5px auto 0 auto;
+}
+.stylish-item button:first-child,
+.stylish-item button:last-child{
+    align-items: end;
+}
+.stylish-item button:first-child span,
+.stylish-item button:last-child span{
+    padding-left: 8%;
+}
+.stylish-item button:nth-child(2) span{
+    padding-right: 8%;
+}
+.best-offer-button img:hover{
+    cursor: pointer;
+}
+.lower-panel-item-card-links,
+#forgot-password,
+#mobile-forgot-password{
+    color: #0000EE;
+}
+.lower-panel-item-card-links:hover,
+#forgot-password:hover{
+    cursor: pointer;
+    color: #551A8B;;
+}
+.lower-panel-content > *,
+.adventure-item > *,
+.gear-up-item > *,
+.stylish-item > * {
+  min-width: 0;
+}

@@ -1,0 +1,103 @@
+.item-panel-lower-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0 0 0; 
+}
+.main-panel-lower{
+    width: 98%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.item-title-category-lower{
+    margin: 0% 0% 0% 0%;
+    padding: 1rem 0 0.5rem 2rem;
+    color: #4682b4;
+}
+.lower-panel-content{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2%;
+    justify-content: center;
+    margin: 0% auto;
+}
+@media (max-width: 450px) {
+  .lower-panel-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.item-panel-lower{
+    max-width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-rows: auto;
+    background-color: white;
+    border-radius: 0.25em;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+.item-panel-lower-title{
+    margin: 0% 0% 0% 8%;
+}
+.item-panel-lower-div-2{
+    width: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2%;
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+    padding: 0% 0% 0% 0%;
+}
+.item-panel-lower-div-2> button{
+    display: flex;
+    flex-direction: column;
+    border: transparent;
+    background-color: transparent;
+    justify-items: center;
+    align-items: center;
+}
+.item-panel-lower-div-2> button> img{
+    width: 90%;
+    max-width: 100%;
+    aspect-ratio: 6/5;
+    object-fit: fill;
+    display: block;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0.25em;
+}
+.item-panel-lower-div-2> button> span{
+    align-self: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+.item-panel-lower-div-2 button:first-child span,
+.item-panel-lower-div-2 button:nth-child(3) span{
+    padding-left:4%;
+}
+.item-panel-lower-div-2 button:nth-child(2) span,
+.item-panel-lower-div-2 button:nth-child(4) span{
+    padding-right:4%;
+}
+.item-panel-lower-div-2 button:first-child,
+.item-panel-lower-div-2 button:nth-child(3){
+     align-items: end;
+}
+.item-panel-lower-div-2 button:nth-child(2),
+.item-panel-lower-div-2 button:nth-child(4){
+    align-items: start;
+}
+.item-panel-lower-div-2 button:nth-child(3),
+.item-panel-lower-div-2 button:nth-child(4){
+    margin: 0;
+}
+.item-panel-lower-link{
+    width: auto;
+    margin: 5% 0% 5% 8%;
+}
+.item-panel-lower div a{
+    text-decoration: none;
+    font-size: 0.8em;
+}
