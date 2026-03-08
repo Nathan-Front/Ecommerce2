@@ -1,16 +1,26 @@
 async function fetchNavigation() {
     const body = document.querySelector("body");
 
-    const resHeader = await fetch("./nav/mainNav.html");
-    const headerHTML = await resHeader.text();
-    body.insertAdjacentHTML("afterbegin", headerHTML);
-    const navContainer = document.querySelector(".title-cart-panel");
+    if (window.innerWidth <= 599) {
+        const resMobileNav = await fetch("./header/mobileHeaders.html");
+        const mobileNavHTML = await resMobileNav.text();
+        body.insertAdjacentHTML("afterbegin", mobileNavHTML);
+    } else {
+        const resHeader = await fetch("./nav/mainNav.html");
+        const headerHTML = await resHeader.text();
+        body.insertAdjacentHTML("afterbegin", headerHTML);
+        const navContainer = document.querySelector(".title-cart-panel");
 
+        const resCategory = await fetch("./header/categoryPanel.html");
+        const categoryHTML = await resCategory.text();
+        navContainer.innerHTML += categoryHTML;
+    }
 
-    const resCategory = await fetch("./header/categoryPanel.html");
-    const categoryHTML = await resCategory.text();
-    navContainer.innerHTML += categoryHTML;
+ 
+}
 
+async function fetchBodyContent(){
+    const body = document.body;
     const resUpCarousel = await fetch("./upperCarousel/upperCarousel.html");
     const upCarouselHTML = await resUpCarousel.text();
     body.insertAdjacentHTML("beforeend", upCarouselHTML);
@@ -18,20 +28,29 @@ async function fetchNavigation() {
     const resUpItems = await fetch("./product/items.html");
     const itemsHTML = await resUpItems.text();
     body.insertAdjacentHTML("beforeend", itemsHTML);
-    fetchProducts();
 
     const resFooter = await fetch("./footer/footer.html");
     const footerlHTML = await resFooter.text();
     body.insertAdjacentHTML("beforeend", footerlHTML);
-
 }
-
 async function initAsync() {
-    await fetchNavigation();
+     await fetchNavigation();
+    await fetchBodyContent();
+    await fetchProducts();
+
     categoryToggle();
     animateUpperImages();
 }
 document.addEventListener("DOMContentLoaded", initAsync);
+
+let isMobile = window.innerWidth <= 599;
+window.addEventListener("resize", () => {
+    const nowMobile = window.innerWidth <= 599;
+    if (nowMobile !== isMobile) {
+        isMobile = nowMobile;
+        fetchNavigation(); 
+    }
+});
 
 
 

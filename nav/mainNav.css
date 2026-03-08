@@ -9,13 +9,37 @@
     flex-direction: column;
     position: fixed;
     z-index: 9;
-    transition: 0.3s ease-in-out;
+
 }
 .nav-area{
     width: 100%;
     display: flex;
     background-color: #add8e6;
     gap: 2%;
+}
+@media only screen and (max-width: 599px){
+    .title-cart-panel{
+        display: none;
+    }
+    .mobile-header-cart-tab{
+        width: 100%;
+        display: flex;
+        z-index: 9;
+        position: fixed;
+        background-color: #add8e6;
+        padding: 5px 0;
+        align-items: center;
+    }
+    .mobile-header-cart-tab> img:first-child{
+        width: clamp(30px, 7vw, 40px);
+        margin: 0 0 0 1em;
+    }
+    .mobile-header-cart-tab> img:last-child{
+        width: clamp(25px, 1vw, 30px);
+        margin: 0;
+        position: absolute;
+        right: 1em;
+    } 
 }
 .logo-company{
     margin: 0 0 0 1em;
@@ -92,6 +116,7 @@
     height: clamp(1.2rem, 1.7vw, 1.8rem);
     object-fit: contain;
 }
+
 
 
 /*

@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 2em;
+   
 }
 .clothe-panel{
     width: 95vw;
@@ -23,4 +24,8 @@
 }
 .item-title-category{
     color: #4682b4;
+}
+.best-offer-button> img:hover{
+    transform: translateY(-3px);
+    transition: 0.3s;
 }

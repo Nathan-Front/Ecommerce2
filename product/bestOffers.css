@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 0 0 0; 
+    height: auto;
 }
 .main-panel-lower{
     width: 98%;
@@ -19,18 +20,20 @@
 .lower-panel-content{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    gap: 2em;
     justify-content: center;
     margin: 0% auto;
 }
 @media (max-width: 450px) {
   .lower-panel-content {
     grid-template-columns: 1fr 1fr;
+    
   }
 }
 .item-panel-lower{
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: grid;
     grid-template-rows: auto;
