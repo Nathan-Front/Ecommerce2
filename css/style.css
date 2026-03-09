@@ -52,20 +52,7 @@ li{
     flex-shrink: 0; 
     }
 } 
-.burger-links-hidden-footer{
-        display: none;
-    }
-/*max-width 430px*/
-.mobile-header,
-.mobile-header-cart,
-.mobile-header-cart-tab,
-#login-page,
-.cpHomeBtn,
-#burger,
-#burger-close,
-.burger-link-menu{
-    display: none;
-}
+
 
 
 

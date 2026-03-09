@@ -1,11 +1,11 @@
 async function fetchNavigation() {
-    const body = document.querySelector("body");
+    const body = document.body;
 
-    if (window.innerWidth <= 599) {
+    if(window.innerWidth <= 599){
         const resMobileNav = await fetch("./header/mobileHeaders.html");
         const mobileNavHTML = await resMobileNav.text();
         body.insertAdjacentHTML("afterbegin", mobileNavHTML);
-    } else {
+    }else{
         const resHeader = await fetch("./nav/mainNav.html");
         const headerHTML = await resHeader.text();
         body.insertAdjacentHTML("afterbegin", headerHTML);
@@ -29,19 +29,31 @@ async function fetchBodyContent(){
     const itemsHTML = await resUpItems.text();
     body.insertAdjacentHTML("beforeend", itemsHTML);
 
+
+
     const resFooter = await fetch("./footer/footer.html");
     const footerlHTML = await resFooter.text();
     body.insertAdjacentHTML("beforeend", footerlHTML);
+
+        const resMobileFooter = await fetch("./footer/mobileFooter.html");
+    const mobileFooterHTML = await resMobileFooter.text();
+    body.insertAdjacentHTML("beforeend", mobileFooterHTML);
+   
+    const mobileNews = await fetch("./footer/mobileNews.html");
+        const mobileNewsHTML = await mobileNews.text();
+        body.insertAdjacentHTML("beforeend", mobileNewsHTML);
 }
-async function initAsync() {
-     await fetchNavigation();
+async function initAsync(){
+    await fetchNavigation();
     await fetchBodyContent();
     await fetchProducts();
 
     categoryToggle();
     animateUpperImages();
+    burgerButton();
 }
 document.addEventListener("DOMContentLoaded", initAsync);
+
 
 let isMobile = window.innerWidth <= 599;
 window.addEventListener("resize", () => {
@@ -119,6 +131,14 @@ function animateUpperImages() {
 }
 
 
-function clotheSelection() {
-
+function burgerButton() {
+    const burgerOpenBtn = document.getElementById("burger-open-button");
+    const displayNews = document.getElementById("toggle-mobile-news");
+    burgerOpenBtn.addEventListener("click", ()=>{
+        displayNews.classList.toggle("display");
+        document.body.classList.toggle("no-scroll");
+        burgerOpenBtn.src = burgerOpenBtn.src.includes("icon-hamburger.svg")
+        ? "../images/logo/icon-close.svg"
+        : "../images/logo/icon-hamburger.svg";
+    });
 }
