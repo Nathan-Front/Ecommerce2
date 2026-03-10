@@ -4,6 +4,9 @@
 button:hover{
     cursor: pointer;
 }
+html {
+  scrollbar-gutter: stable;
+}
 body{
     margin: 0;
     padding: 0;
@@ -765,7 +768,7 @@ left: 0;
      background-color: #312c2c;
 }*/
 
-
+/*
 
 @media only screen and (max-width: 360px){
      .item-panel-lower-container{
@@ -1186,7 +1189,7 @@ left: 0;
         padding: 0;
     }
 
-}
+}*/
 /*
 .item-panel-lower div h4{
     width: fit-content;

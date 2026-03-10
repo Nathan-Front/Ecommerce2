@@ -17,6 +17,9 @@
     background-color: #add8e6;
     gap: 2%;
 }
+.mobile-header-cart-tab{
+    display: none;
+}
 @media only screen and (max-width: 599px){
     .title-cart-panel{
         display: none;

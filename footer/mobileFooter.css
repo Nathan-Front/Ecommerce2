@@ -11,6 +11,7 @@
         left: 0;
         bottom: 0;
         z-index: 999;
+        
     }
     .mobile-footer> ul{
         width: 100%;
@@ -95,6 +96,9 @@
         font-size: clamp(1.2rem, 1.5vw, 1.6rem);
         font-weight: bold;
         margin: 0 0 0 1rem;
+    }
+    .toggle-button-title:hover{
+        cursor: pointer;
     }
     .mobile-menu-wrap{
         border: 1px gray solid;

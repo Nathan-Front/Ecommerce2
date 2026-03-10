@@ -1,22 +1,17 @@
 async function fetchNavigation() {
     const body = document.body;
+   
+    const resMobileNav = await fetch("./header/mobileHeaders.html");
+    const mobileNavHTML = await resMobileNav.text();
+    body.insertAdjacentHTML("afterbegin", mobileNavHTML);
 
-    if(window.innerWidth <= 599){
-        const resMobileNav = await fetch("./header/mobileHeaders.html");
-        const mobileNavHTML = await resMobileNav.text();
-        body.insertAdjacentHTML("afterbegin", mobileNavHTML);
-    }else{
-        const resHeader = await fetch("./nav/mainNav.html");
-        const headerHTML = await resHeader.text();
-        body.insertAdjacentHTML("afterbegin", headerHTML);
-        const navContainer = document.querySelector(".title-cart-panel");
-
-        const resCategory = await fetch("./header/categoryPanel.html");
-        const categoryHTML = await resCategory.text();
-        navContainer.innerHTML += categoryHTML;
-    }
-
- 
+    const resHeader = await fetch("./header/mainNav.html");
+    const headerHTML = await resHeader.text();
+    body.insertAdjacentHTML("afterbegin", headerHTML);
+    const navContainer = document.querySelector(".title-cart-panel");
+    const resCategory = await fetch("./header/categoryPanel.html");
+    const categoryHTML = await resCategory.text();
+    navContainer.innerHTML += categoryHTML;
 }
 
 async function fetchBodyContent(){
@@ -29,19 +24,21 @@ async function fetchBodyContent(){
     const itemsHTML = await resUpItems.text();
     body.insertAdjacentHTML("beforeend", itemsHTML);
 
-
-
     const resFooter = await fetch("./footer/footer.html");
     const footerlHTML = await resFooter.text();
     body.insertAdjacentHTML("beforeend", footerlHTML);
 
-        const resMobileFooter = await fetch("./footer/mobileFooter.html");
+    const resMobileFooter = await fetch("./footer/mobileFooter.html");
     const mobileFooterHTML = await resMobileFooter.text();
     body.insertAdjacentHTML("beforeend", mobileFooterHTML);
    
     const mobileNews = await fetch("./footer/mobileNews.html");
-        const mobileNewsHTML = await mobileNews.text();
-        body.insertAdjacentHTML("beforeend", mobileNewsHTML);
+    const mobileNewsHTML = await mobileNews.text();
+    body.insertAdjacentHTML("beforeend", mobileNewsHTML);
+
+    const resMobileCart = await fetch("./cart/cart.html");
+    const mobileCartHTML = await resMobileCart.text();
+    body.insertAdjacentHTML("beforeend", mobileCartHTML);
 }
 async function initAsync(){
     await fetchNavigation();
@@ -50,7 +47,11 @@ async function initAsync(){
 
     categoryToggle();
     animateUpperImages();
+    returnHome();
     burgerButton();
+   
+    mobileNewsContent();
+    mobileCart();      
 }
 document.addEventListener("DOMContentLoaded", initAsync);
 
@@ -63,8 +64,6 @@ window.addEventListener("resize", () => {
         fetchNavigation(); 
     }
 });
-
-
 
 function categoryToggle() {
     //Function for the news dropdown buttons
@@ -131,16 +130,38 @@ function animateUpperImages() {
 }
 
 
-function burgerButton() {
+function burgerButton(){
     const burgerOpenBtn = document.getElementById("burger-open-button");
     const displayNews = document.getElementById("toggle-mobile-news");
     burgerOpenBtn.addEventListener("click", ()=>{
-        displayNews.classList.toggle("display");
-        document.body.classList.toggle("no-scroll");
-        burgerOpenBtn.src = burgerOpenBtn.src.includes("icon-hamburger.svg")
-        ? "../images/logo/icon-close.svg"
-        : "../images/logo/icon-hamburger.svg";
-        mobileNewsContent();
+        const isOpen = displayNews.classList.contains("display");
+        closeAll();
+        if(!isOpen){
+            displayNews.classList.add("display");
+            document.body.classList.add("no-scroll");
+            burgerOpenBtn.src = "../images/logo/icon-close.svg";
+        }
+    });
+}
+
+function returnHome(){
+    const homeBtn = document.getElementById("mobile-home-button");
+    homeBtn.addEventListener("click", ()=>{
+        window.location.href = "index.html";
+        location.reload();
+    });
+}
+
+function mobileCart(){
+    const cartBtn = document.getElementById("cart-button");
+    const cartWrap = document.querySelector(".check-out-cart-panel");
+    cartBtn.addEventListener("click", ()=>{
+         const isOpen = cartWrap.classList.contains("showCart");
+        closeAll();
+        if(!isOpen){
+            cartWrap.classList.add("showCart");
+            document.body.classList.add("no-scroll");
+        }
     });
 }
 function mobileNewsContent(){
@@ -149,10 +170,21 @@ function mobileNewsContent(){
         const btn = section.querySelector("span");
         btn.addEventListener("click", () => {
             const isOpen = section.classList.contains("openContent");
-            sections.forEach(s => s.classList.remove("openContent"));
+            closeAll();
             if (!isOpen) {
                 section.classList.add("openContent");
             }
         });
     });
+}
+function closeAll(){
+    document.querySelector(".check-out-cart-panel").classList.remove("showCart");
+    document.querySelectorAll(".mobile-menu-section").forEach(s => s.classList.remove("openContent"));
+    const displayNews = document.getElementById("toggle-mobile-news");
+    const burgerOpenBtn = document.getElementById("burger-open-button");
+    if(displayNews) displayNews.classList.remove("display");
+    if(burgerOpenBtn){
+        burgerOpenBtn.src = "../images/logo/icon-hamburger.svg";
+    }
+    document.body.classList.remove("no-scroll");
 }

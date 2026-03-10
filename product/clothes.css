@@ -110,16 +110,7 @@
 .item-size label input[type="radio"]{
     display: none;
 }
-/*Use only when using checkbox*/
-/*
-.item-size label input[type="checkbox"]{
-    display: none;
-}
-.item-size input[type="checkbox"]:checked + .select-size{
-    background-color: #f0c14b;
-    border-color: #a88734;
-    color: #111;
-}*/
+
 .select-size{
     font-size: clamp(0.6rem, 0.9vw, 1.2rem);
     border: 1px rgb(0, 0, 0) solid;
@@ -271,7 +262,7 @@
 
     }
     
-}*/
+}*//*
 @media only screen and (max-width: 430px){
     .item-panel{
         gap: 1em;

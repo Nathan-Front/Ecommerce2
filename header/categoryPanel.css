@@ -255,6 +255,8 @@
 .logged-in-user-info-panel{
     display: none;
 }
+
+/*
 @media only screen and (max-width: 430px){
     .mobile-Login-panel{
         display: flex;
