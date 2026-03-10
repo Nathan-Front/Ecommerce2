@@ -140,5 +140,19 @@ function burgerButton() {
         burgerOpenBtn.src = burgerOpenBtn.src.includes("icon-hamburger.svg")
         ? "../images/logo/icon-close.svg"
         : "../images/logo/icon-hamburger.svg";
+        mobileNewsContent();
+    });
+}
+function mobileNewsContent(){
+    const sections = document.querySelectorAll(".mobile-menu-section");
+    sections.forEach(section => {
+        const btn = section.querySelector("span");
+        btn.addEventListener("click", () => {
+            const isOpen = section.classList.contains("openContent");
+            sections.forEach(s => s.classList.remove("openContent"));
+            if (!isOpen) {
+                section.classList.add("openContent");
+            }
+        });
     });
 }

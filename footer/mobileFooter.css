@@ -1,4 +1,5 @@
-.mobile-footer{
+.mobile-footer,
+.mobile-news{
     display: none;
 }
 @media only screen and (max-width: 599px){
@@ -46,53 +47,120 @@
         width: 100%;
         height: 100vh;
         background-color: white;
-        position: absolute;
+        position: fixed;
         top: 0;
-        left: 0;
-        display: none;
+        right: 0;
+        display: flex;
         flex-direction: column;
-        transition: 0.3s ease-in;
-        z-index: 99;
-        overflow: scroll;
+        transform: translateX(100%);
+        transition: transform 0.4s ease;
+        z-index: 15;
+        overflow-y: auto;
+        padding-bottom: 1.5rem;
     }
     .mobile-news.display{
-        display: flex;
+       transform: translateX(0);   
     }
     .no-scroll{
         overflow: hidden;
     }
-    .mobileNewsImg{
-        width: clamp(60px, 5vw, 150px);
-    }
-    .about-us-image{
-        width: clamp(60px, 5vw, 150px);
-    }
-    .about-us-social-media{
-        width: clamp(60px, 5vw, 150px);
-    }
-    .newsActive{
+    .mobile-menu-section{
+        width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        grid-gap: 0;
-        position: fixed;
-        top: 0;
-        right: 0;
-        padding: 0;
-        width: 100dvw;
-        height: 100dvh;
-        background-color: white;
-        color: whitesmoke;
-        z-index: 15;
-        animation: slideIn 600ms ease-in-out;
-        
+        gap: 5px;
     }
-    @keyframes slideIn {
-        from{
-            margin-right: -100%;
-        }
-        to{
-            margin-right: 0%;
-        }
-    } 
+    #first-toggle-button{
+        margin-top: 30px;
+    }
+    .mobile-menu-section > div{
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin: 0 auto;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: height .35s ease, opacity .3s ease;
+    }
+
+    .mobile-menu-section.openContent > div{
+        height: auto;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 10px auto;
+    }
+    .toggle-button-title{
+        font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+        font-weight: bold;
+        margin: 0 0 0 1rem;
+    }
+    .mobile-menu-wrap{
+        border: 1px gray solid;
+        border-radius: 0.25em;
+        padding: 5px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .mobile-menu-wrap> div{
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .news-menu-cp-title{
+        font-weight: bold;
+        font-size: clamp(1rem, 1.2vw, 1.4rem);
+    }
+    .news-menu-cp> p{
+        font-size: clamp(0.9rem, 1vw, 1.3rem);
+    }
+    .mobileNewsImg{
+        width: clamp(100px, 70vw, 300px);
+        margin: 0 auto;
+        border-radius: 0.25em;
+        box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    }
+    .about-us-menu-content{
+        display: flex;
+    }
+    .about-us-image{
+        width: clamp(100px, 75vw, 350px);
+        margin: 10px auto;
+        border-radius: 0.25em;
+        box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    }
+    .mobile-menu-contact{
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+    .menu-contact{
+        margin: 0;
+    }
+    #social-media{
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .about-us-social-media{
+        width: clamp(20px, 7vw, 80px);
+    }   
+    
+    .mobile-menu-wrap> h2,
+    .mobile-menu-wrap> p{
+        width: 95%;
+        margin: 0 auto;
+    }
+    .mobile-menu-wrap> h2{
+        font-size: clamp(1.1rem, 1.2vw, 1.4rem);
+    }
+    .mobile-menu-wrap> p{
+        font-size: clamp(0.9rem, 1vw, 1.3rem);
+    }
+    
+    
+
 }
