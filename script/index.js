@@ -61,6 +61,7 @@ async function initAsync(){
     await fetchBodyContent();
     await fetchProducts();
     await fetchPopupPanels();
+    await restoreLoggedUser();
     categoryToggle();
     animateUpperImages();
     returnHome();
@@ -74,6 +75,7 @@ async function initAsync(){
 
     createAccount();
     loginAccount();
+    signOut();
 }
 document.addEventListener("DOMContentLoaded", initAsync);
 

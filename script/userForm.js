@@ -43,11 +43,32 @@ function loginAccount(){
         const users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
         const existUser = users.find(user => user.userName === inputUser.value && user.userPassword === inputPass.value);
         if(existUser){
-            const displayUser = document.getElementById("user-to-log");
-            displayUser.textContent = existUser.userName;
+            localStorage.setItem("loggedUser", JSON.stringify(existUser));
+            const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
+            if(savedUser){
+                document.getElementById("user-to-log").textContent = savedUser.userName;
+            }
             closeAll();
         }else{
             alert("Invalid username or password");
         }
+    });
+}
+//Use to restore the logged in user
+async function restoreLoggedUser(){
+    const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    if(!savedUser) return;
+    const displayUser = document.getElementById("user-to-log");
+    if(displayUser) {
+        displayUser.textContent = savedUser.userName;
+    }
+}
+
+function signOut(){
+    const signOutBtn = document.getElementById("sign-out");
+    signOutBtn.addEventListener("click", ()=>{
+        localStorage.removeItem("loggedUser");
+        alert("Signed out");
+        window.location.href = "index.html";
     });
 }
