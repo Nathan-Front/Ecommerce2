@@ -15,13 +15,13 @@
     #overlay.cover{
         display: none;
     }
-}    
+    }    
     .mobile-form{
         width: 50%;
         height: auto;
         background-color: white;
         position: fixed;
-        top: 25%;
+        top: 15%;
         right: 0;
         display: flex;
         flex-direction: column;
@@ -34,7 +34,7 @@
     }
     .mobile-form.showLoginDesk{
         transform: translateX(50%);
-        top: 25%;
+        top: 15%;
         right: 50%;
     }
     .close-form-button{
@@ -45,6 +45,11 @@
     }
     .close-form-button:hover{
         cursor: pointer;
+    }
+    .form-title{
+        width: 95%;
+        margin: 0 auto;
+        font-size: clamp(1.1rem, 1.8vw, 1.8rem);
     }
     .login-page-hidden{
         width: 100%;
@@ -121,21 +126,13 @@
     .mobile-form{
         width: 100%;
         height: 100vh;
-        background-color: white;
-        position: fixed;
         top: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        transform: translateX(100%);
-        transition: transform 0.4s ease;
-        z-index: 15;
-        overflow-y: auto;
-        padding: 3rem 0 0 0;
-        
+        right: 0; 
     }
     .mobile-form.showLogin{
         transform: translateX(0);
+        top: 0%;
+        right: 0%;
     }
     .close-form-button{
         display: none;

@@ -54,6 +54,10 @@ async function fetchPopupPanels(){
     const resCreateAccForm = await fetch("./createForm/createAccountForm.html");
     const createAccFormHTML = await resCreateAccForm.text();
     body.insertAdjacentHTML("beforeend", createAccFormHTML);
+
+    const resUserInfo = await fetch("./loginForm/mobileUserInfo.html");
+    const userInfoHTML = await resUserInfo.text();
+    body.insertAdjacentHTML("beforeend", userInfoHTML);
 }
 
 async function initAsync(){
@@ -69,9 +73,9 @@ async function initAsync(){
    
     mobileNewsContent();
     mobileCart();     
-    loginPage(); 
+    userDisplay(); 
 
-    signInUser();
+    loginCreateForm();
 
     createAccount();
     loginAccount();
@@ -155,24 +159,35 @@ function animateUpperImages() {
     setInterval(imageAnimate, 7000);
 }
 
-function loginPage(){
+function userDisplay(){
     const mobileLoginBtn = document.getElementById("mobile-login-button");
     const formWrap = document.querySelector(".mobile-form");
+    const userInfo = document.querySelector(".logged-in-user-info-panel");
     mobileLoginBtn.addEventListener("click", ()=>{
-         const isOpen = formWrap.classList.contains("showLogin");
-         closeAll();
-        if (!isOpen) {
+            const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
+            const isUserInfoOpen = userInfo.classList.contains("showUserInfo");
+            const isOpen = formWrap.classList.contains("showLogin");
+            closeAll();
+            updateUserIcon();
+            if (!isUserInfoOpen && savedUser) {
+                userInfo.classList.add("showUserInfo");
+                document.body.classList.add("no-scroll");
+                mobileLoginBtn.src = savedUser.indicator;
+            }
+            else if (!savedUser && !isOpen) {
+               
                 formWrap.classList.add("showLogin");
                 document.body.classList.add("no-scroll");
-                mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-blue.svg"
-            }
+                mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-blue.svg"  
+            } 
+            
     });
+    
 }
 function returnHome(){
     const homeBtn = document.getElementById("mobile-home-button");
     homeBtn.addEventListener("click", ()=>{
         window.location.href = "index.html";
-        location.reload();
     });
 }
 
@@ -234,15 +249,15 @@ function mobileNewsContent(){
 function closeAll(){
     const formWrap = document.querySelector(".mobile-form");
     const overlay = document.getElementById("overlay");
-    const mobileLoginBtn = document.getElementById("mobile-login-button");
     const registerForm = document.querySelector(".create-accnt-page");
     const cart = document.querySelector(".check-out-cart-panel");
     const displayNews = document.getElementById("toggle-mobile-news");
     const burgerOpenBtn = document.getElementById("burger-open-button");
+    const userInfo = document.querySelector(".logged-in-user-info-panel");
     if(formWrap){
         formWrap.classList.remove("showLoginDesk");
         formWrap.classList.remove("showLogin");
-        mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-gray.svg";
+        userInfo.classList.remove("showUserInfo");
     }
     if(registerForm){
         registerForm.classList.remove("showCreateAccForm");
@@ -261,19 +276,37 @@ function closeAll(){
     }
     document.body.classList.remove("no-scroll");
 }
+function updateUserIcon(){
+    const mobileLoginBtn = document.getElementById("mobile-login-button");
+    const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    if(savedUser){
+        mobileLoginBtn.src = savedUser.indicator;
+    }else{
+        mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-gray.svg";
+         document.body.classList.remove("no-scroll");
+    }
+
+}
 
 
-
-//login form for desktop
-function signInUser(){
+//Displaying login/create Form
+function loginCreateForm(){
     const signInBtn = document.getElementById("sign-in");
     const formWrap = document.querySelector(".mobile-form");
     signInBtn.addEventListener("click", ()=>{
+        const guest = document.getElementById("user-to-log");
+        if(guest.textContent !== "Guest"){
+            alert("Already logged in"); 
+            return;
+        }
         const isOpen = formWrap.classList.contains("showLoginDesk");
         closeAll();
+        const inputUser = document.getElementById("input-user-name");
+        const rememberMe = JSON.parse(localStorage.getItem("rememberUserName"));
         if(!isOpen){
             formWrap.classList.add("showLoginDesk");
             document.body.classList.add("no-scroll");
+            inputUser.value = rememberMe;
             const overlay = document.getElementById("overlay");
             overlay.classList.toggle("cover");
         }
@@ -281,6 +314,21 @@ function signInUser(){
 
     const registerBtn = document.getElementById("register");
     const registerForm = document.querySelector(".create-accnt-page");
+    const toCreateForm = document.getElementById("redirect-to-create-form");
+    toCreateForm.addEventListener("click", ()=>{
+        closeAll();
+        const mobileLoginBtn = document.getElementById("mobile-login-button");
+        mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-blue.svg";
+        const isOpen = registerForm.classList.contains("showCreateAccForm");
+        if(!isOpen){
+            registerForm.classList.add("showCreateAccForm");
+            document.body.classList.add("no-scroll");
+            const overlay = document.getElementById("overlay");
+            overlay.classList.toggle("cover");
+        }
+        
+    });
+
     registerBtn.addEventListener("click", ()=>{
         const isOpen = registerForm.classList.contains("showCreateAccForm");
         closeAll();
@@ -298,5 +346,19 @@ function signInUser(){
             closeAll();
         });
     });
+    toggleEye();
+}
+
+function toggleEye(){
+  document.addEventListener("click", (e) => {
+    const eye = e.target.closest(".toggle-password"); //Shared className of the eye
+    if(!eye) return;
+    const passwordField = document.getElementById(eye.dataset.target); //Use data- to target the id of the input field of the toggled eye
+    if(!passwordField) return;
+    const isPassword = passwordField.type === "password"; //Does the input field type equal to password
+    passwordField.type = isPassword ? "text" : "password"; //If password then change to text other wise as is
+    eye.classList.toggle("fa-eye"); //For initial existance of the eye
+    eye.classList.toggle("fa-eye-slash");
+  });
 }
 
