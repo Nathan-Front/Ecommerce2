@@ -16,6 +16,7 @@ async function fetchNavigation() {
 
 async function fetchBodyContent(){
     const body = document.body;
+
     const resUpCarousel = await fetch("./upperCarousel/upperCarousel.html");
     const upCarouselHTML = await resUpCarousel.text();
     body.insertAdjacentHTML("beforeend", upCarouselHTML);
@@ -36,32 +37,55 @@ async function fetchBodyContent(){
     const mobileNewsHTML = await mobileNews.text();
     body.insertAdjacentHTML("beforeend", mobileNewsHTML);
 
+
+}
+
+async function fetchPopupPanels(){
+    const body = document.body;
+    
     const resMobileCart = await fetch("./cart/cart.html");
     const mobileCartHTML = await resMobileCart.text();
     body.insertAdjacentHTML("beforeend", mobileCartHTML);
+
+    const resMobileForm = await fetch("./loginForm/mobileLoginForm.html");
+    const mobileFormHTML = await resMobileForm.text();
+    body.insertAdjacentHTML("beforeend", mobileFormHTML);
+
+    const resCreateAccForm = await fetch("./createForm/createAccountForm.html");
+    const createAccFormHTML = await resCreateAccForm.text();
+    body.insertAdjacentHTML("beforeend", createAccFormHTML);
 }
+
 async function initAsync(){
     await fetchNavigation();
     await fetchBodyContent();
     await fetchProducts();
-
+    await fetchPopupPanels();
     categoryToggle();
     animateUpperImages();
     returnHome();
     burgerButton();
    
     mobileNewsContent();
-    mobileCart();      
+    mobileCart();     
+    loginPage(); 
+
+    signInUser();
+
+    createAccount();
+    loginAccount();
 }
 document.addEventListener("DOMContentLoaded", initAsync);
 
 
+//Use to breakdown only at this viewport
 let isMobile = window.innerWidth <= 599;
 window.addEventListener("resize", () => {
     const nowMobile = window.innerWidth <= 599;
     if (nowMobile !== isMobile) {
         isMobile = nowMobile;
         fetchNavigation(); 
+        closeAll();
     }
 });
 
@@ -129,21 +153,19 @@ function animateUpperImages() {
     setInterval(imageAnimate, 7000);
 }
 
-
-function burgerButton(){
-    const burgerOpenBtn = document.getElementById("burger-open-button");
-    const displayNews = document.getElementById("toggle-mobile-news");
-    burgerOpenBtn.addEventListener("click", ()=>{
-        const isOpen = displayNews.classList.contains("display");
-        closeAll();
-        if(!isOpen){
-            displayNews.classList.add("display");
-            document.body.classList.add("no-scroll");
-            burgerOpenBtn.src = "../images/logo/icon-close.svg";
-        }
+function loginPage(){
+    const mobileLoginBtn = document.getElementById("mobile-login-button");
+    const formWrap = document.querySelector(".mobile-form");
+    mobileLoginBtn.addEventListener("click", ()=>{
+         const isOpen = formWrap.classList.contains("showLogin");
+         closeAll();
+        if (!isOpen) {
+                formWrap.classList.add("showLogin");
+                document.body.classList.add("no-scroll");
+                mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-blue.svg"
+            }
     });
 }
-
 function returnHome(){
     const homeBtn = document.getElementById("mobile-home-button");
     homeBtn.addEventListener("click", ()=>{
@@ -163,6 +185,35 @@ function mobileCart(){
             document.body.classList.add("no-scroll");
         }
     });
+    const deskCartBtn = document.getElementById("check-out-cart");
+    deskCartBtn.addEventListener("click", ()=>{
+        const isOpen = cartWrap.classList.contains("showCart");
+        closeAll();
+        if(!isOpen){
+            cartWrap.classList.add("showCart");
+            document.body.classList.add("no-scroll");
+            const overlay = document.getElementById("overlay");
+            overlay.classList.toggle("cover");
+        }
+    });
+
+    const closeCartBtn = document.getElementById("close-cart");
+    closeCartBtn.addEventListener("click", ()=>{
+        closeAll();
+    });
+}
+function burgerButton(){
+    const burgerOpenBtn = document.getElementById("burger-open-button");
+    const displayNews = document.getElementById("toggle-mobile-news");
+    burgerOpenBtn.addEventListener("click", ()=>{
+        const isOpen = displayNews.classList.contains("display");
+        closeAll();
+        if(!isOpen){
+            displayNews.classList.add("display");
+            document.body.classList.add("no-scroll");
+            burgerOpenBtn.src = "../images/logo/icon-close.svg";
+        }
+    });
 }
 function mobileNewsContent(){
     const sections = document.querySelectorAll(".mobile-menu-section");
@@ -170,21 +221,80 @@ function mobileNewsContent(){
         const btn = section.querySelector("span");
         btn.addEventListener("click", () => {
             const isOpen = section.classList.contains("openContent");
-            closeAll();
+            sections.forEach(s => s.classList.remove("openContent"));
             if (!isOpen) {
                 section.classList.add("openContent");
             }
         });
     });
 }
+
 function closeAll(){
-    document.querySelector(".check-out-cart-panel").classList.remove("showCart");
-    document.querySelectorAll(".mobile-menu-section").forEach(s => s.classList.remove("openContent"));
+    const formWrap = document.querySelector(".mobile-form");
+    const overlay = document.getElementById("overlay");
+    const mobileLoginBtn = document.getElementById("mobile-login-button");
+    const registerForm = document.querySelector(".create-accnt-page");
+    const cart = document.querySelector(".check-out-cart-panel");
     const displayNews = document.getElementById("toggle-mobile-news");
     const burgerOpenBtn = document.getElementById("burger-open-button");
-    if(displayNews) displayNews.classList.remove("display");
+    if(formWrap){
+        formWrap.classList.remove("showLoginDesk");
+        formWrap.classList.remove("showLogin");
+        mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-gray.svg";
+    }
+    if(registerForm){
+        registerForm.classList.remove("showCreateAccForm");
+    }
+    if(overlay){
+        overlay.classList.remove("cover");
+    }
+    if(cart){
+        cart.classList.remove("showCart");
+    }
+    if(displayNews){
+        displayNews.classList.remove("display");
+    }
     if(burgerOpenBtn){
         burgerOpenBtn.src = "../images/logo/icon-hamburger.svg";
     }
     document.body.classList.remove("no-scroll");
 }
+
+
+
+//login form for desktop
+function signInUser(){
+    const signInBtn = document.getElementById("sign-in");
+    const formWrap = document.querySelector(".mobile-form");
+    signInBtn.addEventListener("click", ()=>{
+        const isOpen = formWrap.classList.contains("showLoginDesk");
+        closeAll();
+        if(!isOpen){
+            formWrap.classList.add("showLoginDesk");
+            document.body.classList.add("no-scroll");
+            const overlay = document.getElementById("overlay");
+            overlay.classList.toggle("cover");
+        }
+    });
+
+    const registerBtn = document.getElementById("register");
+    const registerForm = document.querySelector(".create-accnt-page");
+    registerBtn.addEventListener("click", ()=>{
+        const isOpen = registerForm.classList.contains("showCreateAccForm");
+        closeAll();
+        if(!isOpen){
+            registerForm.classList.add("showCreateAccForm");
+            document.body.classList.add("no-scroll");
+            const overlay = document.getElementById("overlay");
+            overlay.classList.toggle("cover");
+        }
+    });
+
+    const closeFormBtn = document.querySelectorAll(".close-form-button");
+    closeFormBtn.forEach(btn =>{
+        btn.addEventListener("click", ()=>{
+            closeAll();
+        });
+    });
+}
+

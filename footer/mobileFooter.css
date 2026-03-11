@@ -57,7 +57,7 @@
         transition: transform 0.4s ease;
         z-index: 15;
         overflow-y: auto;
-        padding-bottom: 1.5rem;
+        padding: 1.5rem 0 1.5rem 0;
     }
     .mobile-news.display{
        transform: translateX(0);   

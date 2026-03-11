@@ -1,0 +1,81 @@
+.create-accnt-page{
+    width: 50%;
+    height: auto;
+    background-color: white;
+    position: fixed;
+    top: 25%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    z-index: 15;
+    overflow-y: auto;
+    padding: 3rem 0;
+  
+}
+.create-accnt-page.showCreateAccForm{
+    transform: translateX(50%);
+    top: 25%;
+    right: 50%;
+}
+.create-accnt-page label{
+    margin: 0;
+    color: black;
+}
+.create-accnt-page input{
+    width: 90%;
+    margin: 0 auto;
+}
+.create-accnt-page label{
+    width: 90%;
+    margin: 10px auto 3px auto;
+}
+.pass-input-field{
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+}
+.pass-input-field> input{
+    width: 100%;
+}
+
+
+
+.reserve-panel{
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+}
+
+/*When email input format is wrong*/
+.error {
+  color: red;
+  font-size: 0.6rem;
+  margin: 0% 0% 0% 5%;
+}
+input.error-border {
+  border: 2px solid red;
+}
+.login-create{
+    width: 90%;
+    display: flex;
+    margin: 0% auto;
+}
+.login-create button{
+    width: 40%;
+    margin: 3% auto 5% auto;
+}
+.login-create button:first-child{
+    margin:5% auto 5% 0%;
+}
+.login-create button:last-child{
+    margin:5% 0% 5% auto;
+}
+.cancel-forgot-container{
+    width: 90%;
+    display: flex;
+    justify-items: start;
+    margin: 5% auto 0% auto;
+}

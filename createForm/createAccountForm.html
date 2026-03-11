@@ -1,10 +1,17 @@
 <form class="create-accnt-page" id="create-accnt-btn" novalidate>
+  <img
+    id="close-login-panel"
+    src="images/logo/close-cross-svgrepo-com.svg"
+    alt=""
+    class="close-form-button"
+  />
   <label for="uname"><b>Username</b></label>
   <input
     id="input-uName"
     type="text"
     placeholder="input Username"
     name="uname"
+    required
   />
   <label for="pass"><b>Password</b></label>
   <div class="pass-input-field">
@@ -13,6 +20,8 @@
       type="password"
       placeholder="input password"
       name="pass"
+      autocomplete="current-password"
+      required
     />
     <i
       class="fa-solid fa-eye toggle-password"
@@ -28,10 +37,18 @@
     type="text"
     placeholder="input password"
     name="pass"
+    required
+  />
+  <label for="uphone"><b>Contact number</b></label>
+  <input
+    id="input-number"
+    type="text"
+    placeholder="input contact number"
+    name="uphone"
   />
   <small class="error"></small>
   <div class="login-create">
-    <button>Create account</button>
-    <button id="close-createAccnt-page">Cancel</button>
+    <button type="submit">Create account</button>
+    <button type="button" id="close-createAccnt-page">Cancel</button>
   </div>
 </form>

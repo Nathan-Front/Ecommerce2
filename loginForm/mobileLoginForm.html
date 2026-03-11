@@ -1,35 +1,28 @@
-<!--For 430px and below-->
-<form class="top-panel-cp top-panel" id="mobile-form-submit">
+<form class="mobile-form" id="mobile-form-submit">
   <img
-    src="images/logo/letter-uppercase-square-n-svgrepo-com.svg"
-    alt="company logo"
-  />
-  <h1>otare</h1>
-  <img
-    id="login-panel-button"
-    src="images/logo/profile-user-svgrepo-com.svg"
-    alt="login button"
+    id="close-login-panel"
+    src="images/logo/close-cross-svgrepo-com.svg"
+    alt=""
+    class="close-form-button"
   />
   <div class="login-page-hidden" id="login-page">
-    <img
-      id="close-login-page"
-      src="images/logo/close-cross-svgrepo-com.svg"
-      alt=""
-    />
-    <label for="uname"><b>Username</b></label>
+    <label for="input-user-name"><b>Username</b></label>
     <input
       type="text"
       placeholder="input Username"
       name="uname"
       id="input-user-name"
+      autocomplete="current-user"
     />
-    <label for="pass"><b>Password</b></label>
-    <div class="pass-input-field">
+    <label for="input-user-pass"><b>Password</b></label>
+    <div class="login-pass-input-field">
       <input
         type="password"
         placeholder="input password"
         name="pass"
         id="input-user-pass"
+        autocomplete="current-password"
+        required
       />
       <i
         class="fa-solid fa-eye toggle-password"
@@ -39,8 +32,14 @@
         id="eye"
       ></i>
     </div>
-    <button type="submit" id="mobile-login-button">Login</button>
-    <button type="button" id="mobile-redirect-to-create-form">
+    <button type="submit" id="mobile-login-button" class="mobile-login-btn">
+      Login
+    </button>
+    <button
+      type="button"
+      id="mobile-redirect-to-create-form"
+      class="mobile-no-acc-btn"
+    >
       Don't have account yet?
     </button>
     <label>
@@ -49,12 +48,15 @@
         checked="checked"
         name="remember"
         id="mobile-remember-me"
+        class="remember-me"
       />
       <span>Remember me</span>
     </label>
     <div class="cancel-forgot">
       <button type="button" id="mobile-cancel-form">Cancel</button>
-      <p>Forgot <a id="mobile-forgot-password">password?</a></p>
+      <p class="forgot-pass">
+        Forgot <a id="mobile-forgot-password">password?</a>
+      </p>
     </div>
     <div class="alright-reserve-acc-footer">
       <p>© Nov-2025, Ⓝ Notare, Jonathan P. Tindungan</p>
@@ -62,17 +64,22 @@
         ><img
           src="images/category/hot items/facebook-svgrepo-com.svg"
           alt="Facebook"
+          class="mobile-form-media"
       /></a>
       <a href=""
         ><img
           src="images/category/hot items/instagram-rounded-border-svgrepo-com.svg"
           alt="Instagram"
+          class="mobile-form-media"
       /></a>
       <a href=""
         ><img
           src="images/category/hot items/linkedin-boerder-svgrepo-com.svg"
           alt="LinkedIn"
+          class="mobile-form-media"
       /></a>
     </div>
   </div>
 </form>
+<!--For covering the main page when cart is opened-->
+<div id="overlay"></div>

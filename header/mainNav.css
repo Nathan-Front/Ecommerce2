@@ -1,8 +1,4 @@
-.top-panel-cp{
-    display: flex;
-    height: 0;
-    width: 0;
-}
+
 .title-cart-panel{
     width: 100vw;
     display: flex;
@@ -32,6 +28,7 @@
         background-color: #add8e6;
         padding: 5px 0;
         align-items: center;
+        z-index: 999;
     }
     .mobile-header-cart-tab> img:first-child{
         width: clamp(30px, 7vw, 40px);
