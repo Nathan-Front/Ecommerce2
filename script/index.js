@@ -92,7 +92,13 @@ async function initAsync(){
 
     createAccount();
     loginAccount();
+    uploadProfile();
     signOut();
+    
+    addItemToCart();
+    itemCount();
+    await fetchCartContent();
+     updateCartCounter();
 }
 document.addEventListener("DOMContentLoaded", initAsync);
 
@@ -180,7 +186,9 @@ function userDisplay(){
             const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
             const isUserInfoOpen = userInfo.classList.contains("showUserInfo");
             const isOpen = formWrap.classList.contains("showLogin");
-            if (!isUserInfoOpen && savedUser) {
+             closeMobileNews();
+            if (!isUserInfoOpen && savedUser) { 
+                closeAll();
                 userInfo.classList.add("showUserInfo");
                 document.body.classList.add("no-scroll");
                 mobileLoginBtn.src = savedUser.indicator;
@@ -208,6 +216,7 @@ function mobileCart(){
          const isOpen = cartWrap.classList.contains("showCart");
         closeAll();
         mobileUserIndicator();
+        closeMobileNews();
         if(!isOpen){
             cartWrap.classList.add("showCart");
             document.body.classList.add("no-scroll");
@@ -237,6 +246,7 @@ function burgerButton(){
         const isOpen = displayNews.classList.contains("display");
         closeAll();
         mobileUserIndicator();
+        closeMobileNews();
         if(!isOpen){
             displayNews.classList.add("display");
             document.body.classList.add("no-scroll");
@@ -250,12 +260,16 @@ function mobileNewsContent(){
         const btn = section.querySelector("span");
         btn.addEventListener("click", () => {
             const isOpen = section.classList.contains("openContent");
-            sections.forEach(s => s.classList.remove("openContent"));
+            closeMobileNews();
             if (!isOpen) {
                 section.classList.add("openContent");
             }
         });
     });
+}
+function closeMobileNews(){
+    const sections = document.querySelectorAll(".mobile-menu-section");
+    sections.forEach(s => s.classList.remove("openContent"));
 }
 
 function closeAll(){
@@ -366,8 +380,12 @@ function closeForm(){
     toggleEye();
 }
 function mobileUserIndicator(){
-    document.getElementById("mobile-login-button").
-    src = "../images/logo/profile-user-svgrepo-com-gray.svg" 
+    const loggedExist = JSON.parse(localStorage.getItem("loggedUser"));
+    if(!loggedExist){
+        document.getElementById("mobile-login-button").
+        src = "../images/logo/profile-user-svgrepo-com-gray.svg" 
+    }
+    
 }
 function toggleEye(){
   document.addEventListener("click", (e) => {

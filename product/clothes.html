@@ -1,8 +1,5 @@
 <div class="clothe-panel owl-carousel-container">
   <h2 class="item-title-category">Clothes</h2>
-  <button type="button" class="carousel-button left">
-    <i id="left" class="fas fa-chevron-left"></i>
-  </button>
   <ul class="clothing owl-carousel" id="clothing-container">
     <li
       class="list-of-items carousel-item mobile-main-panel-active"
@@ -13,11 +10,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-1">M-jacket</span></p>
-          <p>Item price ($)<span id="item-price-1">9.75</span></p>
+          <p>Item name:<span class="product-name">M-jacket</span></p>
+          <p>Item price ($)<span class="item-price">9.75</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/casual_men.jpg"
@@ -40,41 +37,67 @@
             value="SS"
             id="size-ss"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss">SS</span>
         </label>
         <label for="size-s">
-          <input name="select-size-1" value="S" id="size-s" type="radio" />
+          <input
+            name="select-size-1"
+            value="S"
+            id="size-s"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s">S</span>
         </label>
         <label for="size-m">
-          <input name="select-size-1" value="M" id="size-m" type="radio" />
+          <input
+            name="select-size-1"
+            value="M"
+            id="size-m"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m">M</span>
         </label>
         <label for="size-l">
-          <input name="select-size-1" value="L" id="size-l" type="radio" />
+          <input
+            name="select-size-1"
+            value="L"
+            id="size-l"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l">L</span>
         </label>
         <label for="size-ll">
-          <input name="select-size-1" value="2L" id="size-ll" type="radio" />
+          <input
+            name="select-size-1"
+            value="2L"
+            id="size-ll"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-ll">2L</span>
         </label>
         <label for="size-lll">
-          <input name="select-size-1" value="3L" id="size-lll" type="radio" />
+          <input
+            name="select-size-1"
+            value="3L"
+            id="size-lll"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-lll">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button
-          class="add-cart-button"
-          onclick="addingToCart('M-jacket', this)"
-        >
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-1">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -87,11 +110,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-2">W-jacket</span></p>
-          <p>Item price ($)<span id="item-price-2">10.00</span></p>
+          <p>Item name:<span class="product-name">W-jacket</span></p>
+          <p>Item price ($)<span class="item-price">10.00</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/casual_women.jpg"
@@ -114,41 +137,67 @@
             value="SS"
             id="size-ss-2"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss-2">SS</span>
         </label>
         <label for="size-s-2">
-          <input name="select-size-2" value="S" id="size-s-2" type="radio" />
+          <input
+            name="select-size-2"
+            value="S"
+            id="size-s-2"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s-2">S</span>
         </label>
         <label for="size-m-2">
-          <input name="select-size-2" value="M" id="size-m-2" type="radio" />
+          <input
+            name="select-size-2"
+            value="M"
+            id="size-m-2"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m-2">M</span>
         </label>
         <label for="size-l-2">
-          <input name="select-size-2" value="L" id="size-l-2" type="radio" />
+          <input
+            name="select-size-2"
+            value="L"
+            id="size-l-2"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l-2">L</span>
         </label>
         <label for="size-ll-2">
-          <input name="select-size-2" value="2L" id="size-ll-2" type="radio" />
+          <input
+            name="select-size-2"
+            value="2L"
+            id="size-ll-2"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-ll-2">2L</span>
         </label>
         <label for="size-lll-2">
-          <input name="select-size-2" value="3L" id="size-lll-2" type="radio" />
+          <input
+            name="select-size-2"
+            value="3L"
+            id="size-lll-2"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-lll-2">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button
-          class="add-cart-button"
-          onclick="addingToCart('W-jacket', this)"
-        >
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-2">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -161,11 +210,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-3">K-jacket</span></p>
-          <p>Item price ($)<span id="item-price-3">20.00</span></p>
+          <p>Item name:<span class="product-name">K-jacket</span></p>
+          <p>Item price ($)<span class="item-price">20.00</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/jacket_men_2.png"
@@ -188,41 +237,67 @@
             value="SS"
             id="size-ss-3"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss-3">SS</span>
         </label>
         <label for="size-s-3">
-          <input name="select-size-3" value="S" id="size-s-3" type="radio" />
+          <input
+            name="select-size-3"
+            value="S"
+            id="size-s-3"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s-3">S</span>
         </label>
         <label for="size-m-3">
-          <input name="select-size-3" value="M" id="size-m-3" type="radio" />
+          <input
+            name="select-size-3"
+            value="M"
+            id="size-m-3"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m-3">M</span>
         </label>
         <label for="size-l-3">
-          <input name="select-size-3" value="L" id="size-l-3" type="radio" />
+          <input
+            name="select-size-3"
+            value="L"
+            id="size-l-3"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l-3">L</span>
         </label>
         <label for="size-ll-3">
-          <input name="select-size-3" value="2L" id="size-ll-3" type="radio" />
+          <input
+            name="select-size-3"
+            value="2L"
+            id="size-ll-3"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-ll-3">2L</span>
         </label>
         <label for="size-lll-3">
-          <input name="select-size-3" value="3L" id="size-lll-3" type="radio" />
+          <input
+            name="select-size-3"
+            value="3L"
+            id="size-lll-3"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-lll-3">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button
-          class="add-cart-button"
-          onclick="addingToCart('K-jacket', this)"
-        >
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-3">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -235,11 +310,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-4">C-jacket</span></p>
-          <p>Item price ($)<span id="item-price-4">17.25</span></p>
+          <p>Item name:<span class="product-name">C-jacket</span></p>
+          <p>Item price ($)<span class="item-price">17.25</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/jacket_men.jpg"
@@ -262,41 +337,67 @@
             value="SS"
             id="size-ss-4"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss-4">SS</span>
         </label>
         <label for="size-s-4">
-          <input name="select-size-4" value="S" id="size-s-4" type="radio" />
+          <input
+            name="select-size-4"
+            value="S"
+            id="size-s-4"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s-4">S</span>
         </label>
         <label for="size-m-4">
-          <input name="select-size-4" value="M" id="size-m-4" type="radio" />
+          <input
+            name="select-size-4"
+            value="M"
+            id="size-m-4"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m-4">M</span>
         </label>
         <label for="size-l-4">
-          <input name="select-size-4" value="L" id="size-l-4" type="radio" />
+          <input
+            name="select-size-4"
+            value="L"
+            id="size-l-4"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l-4">L</span>
         </label>
         <label for="size-ll-4">
-          <input name="select-size-4" value="2L" id="size-ll-4" type="radio" />
+          <input
+            name="select-size-4"
+            value="2L"
+            id="size-ll-4"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-ll-4">2L</span>
         </label>
         <label for="size-lll-4">
-          <input name="select-size-4" value="3L" id="size-lll-4" type="radio" />
+          <input
+            name="select-size-4"
+            value="3L"
+            id="size-lll-4"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-lll-4">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button
-          class="add-cart-button"
-          onclick="addingToCart('C-jacket', this)"
-        >
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-4">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -309,11 +410,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-5">D-dress</span></p>
-          <p>Item price ($)<span id="item-price-5">7.50</span></p>
+          <p>Item name:<span class="product-name">D-dress</span></p>
+          <p>Item price ($)<span class="item-price">7.50</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/dress.jpg"
@@ -336,38 +437,67 @@
             value="SS"
             id="size-ss-5"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss-5">SS</span>
         </label>
         <label for="size-s-5">
-          <input name="select-size-5" value="S" id="size-s-5" type="radio" />
+          <input
+            name="select-size-5"
+            value="S"
+            id="size-s-5"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s-5">S</span>
         </label>
         <label for="size-m-5">
-          <input name="select-size-5" value="M" id="size-m-5" type="radio" />
+          <input
+            name="select-size-5"
+            value="M"
+            id="size-m-5"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m-5">M</span>
         </label>
         <label for="size-l-5">
-          <input name="select-size-5" value="L" id="size-l-5" type="radio" />
+          <input
+            name="select-size-5"
+            value="L"
+            id="size-l-5"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l-5">L</span>
         </label>
         <label for="size-ll-5">
-          <input name="select-size-5" value="2L" id="size-ll-5" type="radio" />
+          <input
+            name="select-size-5"
+            value="2L"
+            id="size-ll-5"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-ll-5">2L</span>
         </label>
         <label for="size-lll-5">
-          <input name="select-size-5" value="3L" id="size-lll-5" type="radio" />
+          <input
+            name="select-size-5"
+            value="3L"
+            id="size-lll-5"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-lll-5">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('D-dress', this)">
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-5">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -380,11 +510,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-6">M-shirt</span></p>
-          <p>Item price ($)<span id="item-price-6">3.25</span></p>
+          <p>Item name:<span class="product-name">M-shirt</span></p>
+          <p>Item price ($)<span class="item-price">3.25</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/summer_m_1.jpg"
@@ -407,38 +537,67 @@
             value="SS"
             id="size-ss-6"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss-6">SS</span>
         </label>
         <label for="size-s-6">
-          <input name="select-size-6" value="S" id="size-s-6" type="radio" />
+          <input
+            name="select-size-6"
+            value="S"
+            id="size-s-6"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s-6">S</span>
         </label>
         <label for="size-m-6">
-          <input name="select-size-6" value="M" id="size-m-6" type="radio" />
+          <input
+            name="select-size-6"
+            value="M"
+            id="size-m-6"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m-6">M</span>
         </label>
         <label for="size-l-6">
-          <input name="select-size-6" value="L" id="size-l-6" type="radio" />
+          <input
+            name="select-size-6"
+            value="L"
+            id="size-l-6"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l-6">L</span>
         </label>
         <label for="size-ll-6">
-          <input name="select-size-6" value="2L" id="size-ll-6" type="radio" />
+          <input
+            name="select-size-6"
+            value="2L"
+            id="size-ll-6"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-ll-6">2L</span>
         </label>
         <label for="size-lll-6">
-          <input name="select-size-6" value="3L" id="size-lll-6" type="radio" />
+          <input
+            name="select-size-6"
+            value="3L"
+            id="size-lll-6"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-lll-6">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('M-shirt', this)">
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-6">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -451,11 +610,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-7">W-shirt</span></p>
-          <p>Item price ($)<span id="item-price-7">4.50</span></p>
+          <p>Item name:<span class="product-name">W-shirt</span></p>
+          <p>Item price ($)<span class="item-price">4.50</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/summer_w_1.jpg"
@@ -478,38 +637,67 @@
             value="SS"
             id="size-ss-7"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss-7">SS</span>
         </label>
         <label for="size-s-7">
-          <input name="select-size-7" value="S" id="size-s-7" type="radio" />
+          <input
+            name="select-size-7"
+            value="S"
+            id="size-s-7"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s-7">S</span>
         </label>
         <label for="size-m-7">
-          <input name="select-size-7" value="M" id="size-m-7" type="radio" />
+          <input
+            name="select-size-7"
+            value="M"
+            id="size-m-7"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m-7">M</span>
         </label>
         <label for="size-l-7">
-          <input name="select-size-7" value="L" id="size-l-7" type="radio" />
+          <input
+            name="select-size-7"
+            value="L"
+            id="size-l-7"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l-7">L</span>
         </label>
         <label for="size-ll-7">
-          <input name="select-size-7" value="2L" id="size-ll-7" type="radio" />
+          <input
+            name="select-size-7"
+            value="2L"
+            id="size-ll-7"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-ll-7">2L</span>
         </label>
         <label for="size-lll-7">
-          <input name="select-size-7" value="3L" id="size-lll-7" type="radio" />
+          <input
+            name="select-size-7"
+            value="3L"
+            id="size-lll-7"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-lll-7">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('W-shirt', this)">
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-7">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -522,11 +710,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-8">W-pants</span></p>
-          <p>Item price ($)<span id="item-price-8">8.00</span></p>
+          <p>Item name:<span class="product-name">W-pants</span></p>
+          <p>Item price ($)<span class="item-price">8.00</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/summer_w_2.jpg"
@@ -549,38 +737,67 @@
             value="SS"
             id="size-ss-8"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss-8">SS</span>
         </label>
         <label for="size-s-8">
-          <input name="select-size-8" value="S" id="size-s-8" type="radio" />
+          <input
+            name="select-size-8"
+            value="S"
+            id="size-s-8"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s-8">S</span>
         </label>
         <label for="size-m-8">
-          <input name="select-size-8" value="M" id="size-m-8" type="radio" />
+          <input
+            name="select-size-8"
+            value="M"
+            id="size-m-8"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m-8">M</span>
         </label>
         <label for="size-l-8">
-          <input name="select-size-8" value="L" id="size-l-8" type="radio" />
+          <input
+            name="select-size-8"
+            value="L"
+            id="size-l-8"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l-8">L</span>
         </label>
         <label for="size-ll-8">
-          <input name="select-size-8" value="2L" id="size-ll-8" type="radio" />
+          <input
+            name="select-size-8"
+            value="2L"
+            id="size-ll-8"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-ll-8">2L</span>
         </label>
         <label for="size-lll-8">
-          <input name="select-size-8" value="3L" id="size-lll-8" type="radio" />
+          <input
+            name="select-size-8"
+            value="3L"
+            id="size-lll-8"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-lll-8">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('W-pants', this)">
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-8">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -593,11 +810,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-9">K-shirt</span></p>
-          <p>Item price ($)<span id="item-price-9">3.75</span></p>
+          <p>Item name:<span class="product-name">K-shirt</span></p>
+          <p>Item price ($)<span class="item-price">3.75</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/women_shirt.jpg"
@@ -620,38 +837,67 @@
             value="SS"
             id="size-ss-9"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss-9">SS</span>
         </label>
         <label for="size-s-9">
-          <input name="select-size-9" value="S" id="size-s-9" type="radio" />
+          <input
+            name="select-size-9"
+            value="S"
+            id="size-s-9"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s-9">S</span>
         </label>
         <label for="size-m-9">
-          <input name="select-size-9" value="M" id="size-m-9" type="radio" />
+          <input
+            name="select-size-9"
+            value="M"
+            id="size-m-9"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m-9">M</span>
         </label>
         <label for="size-l-9">
-          <input name="select-size-9" value="L" id="size-l-9" type="radio" />
+          <input
+            name="select-size-9"
+            value="L"
+            id="size-l-9"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l-9">L</span>
         </label>
         <label for="size-ll-9">
-          <input name="select-size-9" value="2L" id="size-ll-9" type="radio" />
+          <input
+            name="select-size-9"
+            value="2L"
+            id="size-ll-9"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-ll-9">2L</span>
         </label>
         <label for="size-lll-9">
-          <input name="select-size-9" value="3L" id="size-lll-9" type="radio" />
+          <input
+            name="select-size-9"
+            value="3L"
+            id="size-lll-9"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-lll-9">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('K-shirt', this)">
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-9">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -664,11 +910,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-10">W-set</span></p>
-          <p>Item price ($)<span id="item-price-10">17.85</span></p>
+          <p>Item name:<span class="product-name">W-set</span></p>
+          <p>Item price ($)<span class="item-price">17.85</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/clothe/winter_w_2.jpg"
@@ -691,20 +937,39 @@
             value="SS"
             id="size-ss-10"
             type="radio"
+            class="radio-button"
             checked
           />
           <span class="select-size" for="size-ss-10">SS</span>
         </label>
         <label for="size-s-10">
-          <input name="select-size-10" value="S" id="size-s-10" type="radio" />
+          <input
+            name="select-size-10"
+            value="S"
+            id="size-s-10"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-s-10">S</span>
         </label>
         <label for="size-m-10">
-          <input name="select-size-10" value="M" id="size-m-10" type="radio" />
+          <input
+            name="select-size-10"
+            value="M"
+            id="size-m-10"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-m-10">M</span>
         </label>
         <label for="size-l-10">
-          <input name="select-size-10" value="L" id="size-l-10" type="radio" />
+          <input
+            name="select-size-10"
+            value="L"
+            id="size-l-10"
+            type="radio"
+            class="radio-button"
+          />
           <span class="select-size" for="size-l-10">L</span>
         </label>
         <label for="size-ll-10">
@@ -713,6 +978,7 @@
             value="2L"
             id="size-ll-10"
             type="radio"
+            class="radio-button"
           />
           <span class="select-size" for="size-ll-10">2L</span>
         </label>
@@ -722,22 +988,18 @@
             value="3L"
             id="size-lll-10"
             type="radio"
+            class="radio-button"
           />
           <span class="select-size" for="size-lll-10">3L</span>
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('W-set', this)">
-          Add to cart</button
-        ><!---->
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-10">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
   </ul>
-  <button type="button" class="carousel-button right">
-    <i id="right" class="fas fa-chevron-right"></i>
-  </button>
   <div class="mobile-main-panel-slider-dots"></div>
 </div>

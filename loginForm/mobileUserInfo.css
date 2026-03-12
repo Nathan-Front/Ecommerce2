@@ -19,28 +19,35 @@
     .logged-in-user-info-panel.showUserInfo{
         transform: translateX(0);
     }
-    .upload-profile-pic{
-        width: 20px;
-    }
     .profile-picture{
+        position: relative;
         margin: 25% 0 0 0;
+        width: clamp(80px, 30vw, 140px);
+    }
+    .upload-profile-pic{
+        width: clamp(20px, 10vw, 45px);
+        position: absolute;
+        bottom: -5px;
+        right: -10px;
     }
     .profile-pic{
-        width: 4rem;
-        height: 4rem;
+        width: 100%;
         overflow: hidden;
         border: 1px gainsboro solid;
         border-radius: 50%;
     }
     .logged-in-user-info-panel> p{
         margin: 1.5rem 0 0 0;
-        font-size: clamp(1rem, 3.5vw, 1.6rem);
+        font-size: clamp(1.2rem, 10vw, 1.9rem);
     }
     .logged-in-user-name{
         margin: 1.5rem 0 0 0;
-        font-size: clamp(1.4rem, 5vw, 2rem);
+        font-size: clamp(1.5rem, 10vw, 2.5rem);
+        text-decoration: underline;
     }
-    .logout-button{
+    .sign-out{
         margin: 1.5rem 0 0 0;
+        padding: 5px 15px;
+        font-size: clamp(1.3rem, 1.3vw, 1.8rem);
     }
 }
