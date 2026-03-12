@@ -29,6 +29,10 @@ async function fetchBodyContent(){
     const footerlHTML = await resFooter.text();
     body.insertAdjacentHTML("beforeend", footerlHTML);
 
+    const resAlright = await fetch("./footer/alrightReserve.html");
+    const alrightHTML = await resAlright.text();
+    body.insertAdjacentHTML("beforeend", alrightHTML);
+
     const resMobileFooter = await fetch("./footer/mobileFooter.html");
     const mobileFooterHTML = await resMobileFooter.text();
     body.insertAdjacentHTML("beforeend", mobileFooterHTML);
@@ -46,6 +50,15 @@ async function fetchPopupPanels(){
     const resMobileCart = await fetch("./cart/cart.html");
     const mobileCartHTML = await resMobileCart.text();
     body.insertAdjacentHTML("beforeend", mobileCartHTML);
+    
+    const mobileCart = document.getElementById("display-cart");
+    const mobileFooter = await fetch("./footer/alrightReserve.html");
+    const mobileFooterHTML = await mobileFooter.text();
+    if(mobileCart){
+        mobileCart.insertAdjacentHTML("beforeend", mobileFooterHTML);
+    }
+
+    
 
     const resMobileForm = await fetch("./loginForm/mobileLoginForm.html");
     const mobileFormHTML = await resMobileForm.text();
@@ -65,7 +78,7 @@ async function initAsync(){
     await fetchBodyContent();
     await fetchProducts();
     await fetchPopupPanels();
-    await restoreLoggedUser();
+    restoreLoggedUser();
     categoryToggle();
     animateUpperImages();
     returnHome();
@@ -167,20 +180,17 @@ function userDisplay(){
             const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
             const isUserInfoOpen = userInfo.classList.contains("showUserInfo");
             const isOpen = formWrap.classList.contains("showLogin");
-            closeAll();
-            updateUserIcon();
             if (!isUserInfoOpen && savedUser) {
                 userInfo.classList.add("showUserInfo");
                 document.body.classList.add("no-scroll");
                 mobileLoginBtn.src = savedUser.indicator;
             }
             else if (!savedUser && !isOpen) {
-               
+                closeAll();
                 formWrap.classList.add("showLogin");
                 document.body.classList.add("no-scroll");
                 mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-blue.svg"  
             } 
-            
     });
     
 }
@@ -197,6 +207,7 @@ function mobileCart(){
     cartBtn.addEventListener("click", ()=>{
          const isOpen = cartWrap.classList.contains("showCart");
         closeAll();
+        mobileUserIndicator();
         if(!isOpen){
             cartWrap.classList.add("showCart");
             document.body.classList.add("no-scroll");
@@ -225,6 +236,7 @@ function burgerButton(){
     burgerOpenBtn.addEventListener("click", ()=>{
         const isOpen = displayNews.classList.contains("display");
         closeAll();
+        mobileUserIndicator();
         if(!isOpen){
             displayNews.classList.add("display");
             document.body.classList.add("no-scroll");
@@ -276,6 +288,7 @@ function closeAll(){
     }
     document.body.classList.remove("no-scroll");
 }
+
 function updateUserIcon(){
     const mobileLoginBtn = document.getElementById("mobile-login-button");
     const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
@@ -339,16 +352,23 @@ function loginCreateForm(){
             overlay.classList.toggle("cover");
         }
     });
+    closeForm();
+}
 
+function closeForm(){
     const closeFormBtn = document.querySelectorAll(".close-form-button");
     closeFormBtn.forEach(btn =>{
         btn.addEventListener("click", ()=>{
             closeAll();
+            mobileUserIndicator();
         });
     });
     toggleEye();
 }
-
+function mobileUserIndicator(){
+    document.getElementById("mobile-login-button").
+    src = "../images/logo/profile-user-svgrepo-com-gray.svg" 
+}
 function toggleEye(){
   document.addEventListener("click", (e) => {
     const eye = e.target.closest(".toggle-password"); //Shared className of the eye

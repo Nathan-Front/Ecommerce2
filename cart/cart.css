@@ -42,28 +42,6 @@ overflow: auto;
     z-index: 1000;
     right: 0;
 }
-.alright-reserve-cart-footer{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2%;
-    justify-content: center;
-    margin-top: 2%;
-    padding: 1% 0%;
-    background-color: #4682b4;
-}
-.alright-reserve-cart-footer p{
-    width: 100%;
-    font-size: 0.6em;
-    color: black;
-    line-height: 1;
-    text-align: center;
-    margin: 0;
-    padding: 1% 0;
-}
-.alright-reserve-cart-footer img{
-    width: 1rem;
-}
 .hidden {
     display: none;
     border: none;

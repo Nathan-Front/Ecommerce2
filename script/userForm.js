@@ -50,7 +50,7 @@ function createAccount(){
         }
 
     });
-
+    //Cancel button of the form
     const cancelInput = document.getElementById("cancel-create-input");
     cancelInput.addEventListener("click", ()=>{
         document.getElementById("create-accnt-btn").reset();
@@ -89,31 +89,53 @@ function loginAccount(){
             alert("Invalid username or password");
         }
     });
-
+    //Cancel button of the form
     const cancelInput = document.getElementById("mobile-cancel-input");
     cancelInput.addEventListener("click", ()=>{
         document.getElementById("mobile-form-submit").reset();
     });
 }
+
 //Use to restore the logged in user on reload
-async function restoreLoggedUser(){
+function restoreLoggedUser(){
     const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
-    if(!savedUser) return;
-    const displayUser = document.getElementById("user-to-log");
-    const displayUserMob =  document.getElementById("mobile-user-to-log");
-    const logIndicator = document.getElementById("mobile-login-button");
-    if(displayUser) {
-        displayUser.textContent = savedUser.userName;
-        displayUserMob.textContent = savedUser.user.userName;
-        logIndicator.src = savedUser.indicator;
+    if(savedUser){
+        const displayUser = document.getElementById("user-to-log");
+        const displayUserMob = document.getElementById("mobile-user-to-log");
+        const logIndicator = document.getElementById("mobile-login-button");
+        if(displayUser){
+            displayUser.textContent = savedUser.user.userName;
+        }
+        if(displayUserMob){
+            displayUserMob.textContent = savedUser.user.userName;
+        }
+        if(logIndicator){
+            logIndicator.src = savedUser.indicator;
+        }
+    }
+
+    const savedRemember = JSON.parse(localStorage.getItem("rememberUserName"));
+    if(savedRemember){
+        const inputUser = document.getElementById("input-user-name");
+        const rememberMe = document.getElementById("mobile-remember-me");
+        if(inputUser){
+            inputUser.value = savedRemember;
+        }
+        if(rememberMe){
+            rememberMe.checked = true;
+        }
     }
 }
 
+//Signout all
 function signOut(){
-    const signOutBtn = document.getElementById("sign-out");
-    signOutBtn.addEventListener("click", ()=>{
-        localStorage.removeItem("loggedUser");
-        alert("Signed out");
-        window.location.href = "index.html";
+    const signOutBtn = document.querySelectorAll(".sign-out");
+    signOutBtn.forEach(btn =>{
+        btn.addEventListener("click", ()=>{
+            localStorage.removeItem("loggedUser");
+            alert("Signed out");
+            window.location.href = "index.html";
+        });
     });
+    
 }

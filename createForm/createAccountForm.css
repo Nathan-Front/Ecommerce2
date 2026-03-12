@@ -19,30 +19,14 @@
     top: 15%;
     right: 50%;
 }
-@media only screen and (max-width: 599px){
-    .create-accnt-page{
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        padding: 3rem 0;
-    }
-    .create-accnt-page.showCreateAccForm{
-        transform: translateX(0%);
-        top: 0%;
-        right: 0%;
-    }
-}
-.create-accnt-page label{
+.create-accnt-page> label{
     margin: 0;
-    color: black;
-}
-.create-accnt-page input{
-    width: 95%;
-    margin: 0 auto;
-}
-.create-accnt-page label{
     width: 95%;
     margin: 10px auto 3px auto;
+}
+.create-accnt-page> input{
+    width: 95%;
+    margin: 0 auto;
 }
 .pass-input-field{
     width: 95%;
@@ -53,7 +37,28 @@
 .pass-input-field> input{
     width: 100%;
 }
-
+@media only screen and (max-width: 599px){
+    .create-accnt-page{
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        padding: 100px 0 3rem 0;
+    }
+    .create-accnt-page.showCreateAccForm{
+        transform: translateX(0%);
+        top: 0%;
+        right: 0%;
+    }
+    .create-accnt-page> label{
+        width: 90%;
+    }
+    .create-accnt-page> input{
+        width: 90%;
+    }
+    .pass-input-field{
+        width: 90%;
+    }
+}
 
 
 .reserve-panel{

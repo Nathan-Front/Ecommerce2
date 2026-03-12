@@ -11,7 +11,7 @@
         left: 0;
         bottom: 0;
         z-index: 999;
-        
+        border-top: 1px #87ceeb solid;
     }
     .mobile-footer> ul{
         width: 100%;
