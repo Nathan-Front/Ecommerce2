@@ -66,7 +66,7 @@ function loginAccount(){
         const inputPass = document.getElementById("input-user-pass");
         const users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
         const existUser = users.find(user => user.userName === inputUser.value && user.userPassword === inputPass.value);
-        const userLogIndicator = "../images/logo/profile-user-svgrepo-com-green.svg";
+        const userLogIndicator = "./images/logo/profile-user-svgrepo-com-green.svg";
         if(existUser){
             localStorage.setItem("loggedUser", JSON.stringify({
                 user: existUser,

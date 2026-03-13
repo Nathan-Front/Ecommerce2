@@ -51,7 +51,8 @@
         background-color: rgb(145, 30, 30);
         border-radius: 50%;
         font-size: clamp(0.5rem, 2vw, 0.8rem);
-        transform: translate(100%, 50%);
+        top: 0;
+        right: 5px;
     }
     .display-mobile-category{
         width: 100%;

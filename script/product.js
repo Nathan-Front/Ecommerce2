@@ -146,3 +146,19 @@ function deleteItemInCart(){
         updateCartCounter();
     });
 }
+
+//Payment
+function paymentSummary(){
+    const paymentBtn = document.getElementById("to-payment");
+        paymentBtn.addEventListener("click", ()=>{
+            const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+            if(loggedUser){
+            const cart = JSON.parse(localStorage.getItem("cartContent")) || [];
+            const totalPrice = cart.reduce((sum, item) => sum + item.totalP, 0); //array.reduce((accumulator, currentItem) => {return newValue;}, initialValue);
+            alert("Total balance is: $" + `${totalPrice}`);
+            }else{
+                alert("Login is needed");
+            }
+        });
+    
+}

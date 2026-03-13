@@ -81,6 +81,7 @@ async function initAsync(){
     restoreLoggedUser();
     categoryToggle();
     animateUpperImages();
+    upperPanel();
     returnHome();
     burgerButton();
    
@@ -100,6 +101,7 @@ async function initAsync(){
     await fetchCartContent();
     updateCartCounter();
     deleteItemInCart();
+    paymentSummary();
 }
 document.addEventListener("DOMContentLoaded", initAsync);
 
@@ -176,9 +178,16 @@ function animateUpperImages() {
             current.classList.remove("upper-hide");
         }, 600);
     }
-    setInterval(imageAnimate, 7000);
+    setInterval(imageAnimate, 5000);
 }
-
+function upperPanel(){
+    const upperPanel = document.querySelector(".main-panel-upper");
+    upperPanel.addEventListener("click", (e)=>{
+    if(!e.target.classList.contains("upper-carousel-button")) return;
+        const displayTitle = e.target.textContent;
+            alert("Link to " + displayTitle + " page");
+    });
+}
 function userDisplay(){
     const mobileLoginBtn = document.getElementById("mobile-login-button");
     const formWrap = document.querySelector(".mobile-form");
@@ -198,7 +207,6 @@ function userDisplay(){
                 closeAll();
                 formWrap.classList.add("showLogin");
                 document.body.classList.add("no-scroll");
-                mobileLoginBtn.src = "./images/logo/profile-user-svgrepo-com-blue.svg"  
             } 
     });
     
@@ -216,8 +224,6 @@ function mobileCart(){
     cartBtn.addEventListener("click", ()=>{
          const isOpen = cartWrap.classList.contains("showCart");
         closeAll();
-        mobileUserIndicator();
-        closeMobileNews();
         if(!isOpen){
             cartWrap.classList.add("showCart");
             document.body.classList.add("no-scroll");
@@ -234,7 +240,7 @@ function mobileCart(){
             overlay.classList.toggle("cover");
         }
     });
-
+     
     const closeCartBtn = document.getElementById("close-cart");
     closeCartBtn.addEventListener("click", ()=>{
         closeAll();
@@ -246,7 +252,6 @@ function burgerButton(){
     burgerOpenBtn.addEventListener("click", ()=>{
         const isOpen = displayNews.classList.contains("display");
         closeAll();
-        mobileUserIndicator();
         closeMobileNews();
         if(!isOpen){
             displayNews.classList.add("display");
@@ -304,19 +309,6 @@ function closeAll(){
     document.body.classList.remove("no-scroll");
 }
 
-function updateUserIcon(){
-    const mobileLoginBtn = document.getElementById("mobile-login-button");
-    const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
-    if(savedUser){
-        mobileLoginBtn.src = savedUser.indicator;
-    }else{
-        mobileLoginBtn.src = "./images/logo/profile-user-svgrepo-com-gray.svg";
-         document.body.classList.remove("no-scroll");
-    }
-
-}
-
-
 //Displaying login/create Form
 function loginCreateForm(){
     const signInBtn = document.getElementById("sign-in");
@@ -345,8 +337,6 @@ function loginCreateForm(){
     const toCreateForm = document.getElementById("redirect-to-create-form");
     toCreateForm.addEventListener("click", ()=>{
         closeAll();
-        const mobileLoginBtn = document.getElementById("mobile-login-button");
-        mobileLoginBtn.src = "./images/logo/profile-user-svgrepo-com-blue.svg";
         const isOpen = registerForm.classList.contains("showCreateAccForm");
         if(!isOpen){
             registerForm.classList.add("showCreateAccForm");
@@ -381,12 +371,13 @@ function closeForm(){
     toggleEye();
 }
 function mobileUserIndicator(){
-    const loggedExist = JSON.parse(localStorage.getItem("loggedUser"));
-    if(!loggedExist){
-        document.getElementById("mobile-login-button").
-        src = "./images/logo/profile-user-svgrepo-com-gray.svg" 
+    const mobileLoginBtn = document.getElementById("mobile-login-button");
+    const savedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    if(savedUser){
+        mobileLoginBtn.src = savedUser.indicator;
+    }else{
+        mobileLoginBtn.src = "./images/logo/profile-user-svgrepo-com-gray.svg";
     }
-    
 }
 function toggleEye(){
   document.addEventListener("click", (e) => {
