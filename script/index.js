@@ -198,7 +198,7 @@ function userDisplay(){
                 closeAll();
                 formWrap.classList.add("showLogin");
                 document.body.classList.add("no-scroll");
-                mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-blue.svg"  
+                mobileLoginBtn.src = "./images/logo/profile-user-svgrepo-com-blue.svg"  
             } 
     });
     
@@ -251,7 +251,7 @@ function burgerButton(){
         if(!isOpen){
             displayNews.classList.add("display");
             document.body.classList.add("no-scroll");
-            burgerOpenBtn.src = "../images/logo/icon-close.svg";
+            burgerOpenBtn.src = "./images/logo/icon-close.svg";
         }
     });
 }
@@ -299,7 +299,7 @@ function closeAll(){
         displayNews.classList.remove("display");
     }
     if(burgerOpenBtn){
-        burgerOpenBtn.src = "../images/logo/icon-hamburger.svg";
+        burgerOpenBtn.src = "./images/logo/icon-hamburger.svg";
     }
     document.body.classList.remove("no-scroll");
 }
@@ -310,7 +310,7 @@ function updateUserIcon(){
     if(savedUser){
         mobileLoginBtn.src = savedUser.indicator;
     }else{
-        mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-gray.svg";
+        mobileLoginBtn.src = "./images/logo/profile-user-svgrepo-com-gray.svg";
          document.body.classList.remove("no-scroll");
     }
 
@@ -346,7 +346,7 @@ function loginCreateForm(){
     toCreateForm.addEventListener("click", ()=>{
         closeAll();
         const mobileLoginBtn = document.getElementById("mobile-login-button");
-        mobileLoginBtn.src = "../images/logo/profile-user-svgrepo-com-blue.svg";
+        mobileLoginBtn.src = "./images/logo/profile-user-svgrepo-com-blue.svg";
         const isOpen = registerForm.classList.contains("showCreateAccForm");
         if(!isOpen){
             registerForm.classList.add("showCreateAccForm");
@@ -384,7 +384,7 @@ function mobileUserIndicator(){
     const loggedExist = JSON.parse(localStorage.getItem("loggedUser"));
     if(!loggedExist){
         document.getElementById("mobile-login-button").
-        src = "../images/logo/profile-user-svgrepo-com-gray.svg" 
+        src = "./images/logo/profile-user-svgrepo-com-gray.svg" 
     }
     
 }
