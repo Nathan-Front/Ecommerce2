@@ -98,7 +98,8 @@ async function initAsync(){
     addItemToCart();
     itemCount();
     await fetchCartContent();
-     updateCartCounter();
+    updateCartCounter();
+    deleteItemInCart();
 }
 document.addEventListener("DOMContentLoaded", initAsync);
 

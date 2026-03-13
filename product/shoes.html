@@ -1,8 +1,5 @@
 <div class="clothe-panel owl-carousel-container-shoes">
   <h2 class="item-title-category">Shoes</h2>
-  <button type="button" class="carousel-button left-shoes">
-    <i id="left-Shoes" class="fas fa-chevron-left"></i>
-  </button>
   <ul class="clothing owl-carousel-shoes" id="clothing-container-shoes">
     <li
       class="list-of-items carousel-item-shoes mobile-main-panel-active-2"
@@ -13,11 +10,11 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-11">W-shoes</span></p>
-          <p>Item price ($)<span id="item-price-11">49.99</span></p>
+          <p>Item name:<span class="product-name">W-shoes</span></p>
+          <p>Item price ($)<span class="item-price">49.99</span></p>
         </div>
 
-        <p>seller: ABC comp.</p>
+        <p class="item-seller">seller: ABC comp.</p>
         <img
           class="item-img"
           src="./images/Shoes/shoe1.jpg"
@@ -33,70 +30,29 @@
         </p>
       </div>
       <div class="item-size">
-        <h2>Size:</h2>
-        <label for="size-ss-shoes">
-          <input
-            name="select-size-11"
-            value="SS"
-            id="size-ss-shoes"
-            type="radio"
-            checked
-          />
-          <span class="select-size" for="size-ss-shoes">SS</span>
-        </label>
-        <label for="size-s-shoes">
-          <input
-            name="select-size-11"
-            value="S"
-            id="size-s-shoes"
-            type="radio"
-          />
-          <span class="select-size" for="size-s-shoes">S</span>
-        </label>
-        <label for="size-m-shoes">
-          <input
-            name="select-size-11"
-            value="M"
-            id="size-m-shoes"
-            type="radio"
-          />
-          <span class="select-size" for="size-m-shoes">M</span>
-        </label>
-        <label for="size-l-shoes">
-          <input
-            name="select-size-11"
-            value="L"
-            id="size-l-shoes"
-            type="radio"
-          />
-          <span class="select-size" for="size-l-shoes">L</span>
-        </label>
-        <label for="size-ll-shoes">
-          <input
-            name="select-size-11"
-            value="2L"
-            id="size-ll-shoes"
-            type="radio"
-          />
-          <span class="select-size" for="size-ll-shoes">2L</span>
-        </label>
-        <label for="size-lll-shoes">
-          <input
-            name="select-size-11"
-            value="3L"
-            id="size-lll-shoes"
-            type="radio"
-          />
-          <span class="select-size" for="size-lll-shoes">3L</span>
-        </label>
+        <label for="shoe-size">Select Shoe Size (US / CM):</label>
+        <select id="shoe-size" class="shoe-size-dropdown">
+          <option value="">-- Choose Size --</option>
+          <option value="6">US 6 (24 cm)</option>
+          <option value="6.5">US 6.5 (24.5 cm)</option>
+          <option value="7">US 7 (25 cm)</option>
+          <option value="7.5">US 7.5 (25.5 cm)</option>
+          <option value="8">US 8 (26 cm)</option>
+          <option value="8.5">US 8.5 (26.5 cm)</option>
+          <option value="9">US 9 (27 cm)</option>
+          <option value="9.5">US 9.5 (27.5 cm)</option>
+          <option value="10">US 10 (28 cm)</option>
+          <option value="10.5">US 10.5 (28.5 cm)</option>
+          <option value="11">US 11 (29 cm)</option>
+          <option value="11.5">US 11.5 (29.5 cm)</option>
+          <option value="12">US 12 (30 cm)</option>
+        </select>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('W-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-11">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -109,8 +65,8 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-12">R-shoes</span></p>
-          <p>Item price ($)<span id="item-price-12">35.75</span></p>
+          <p>Item name:<span class="product-name">R-shoes</span></p>
+          <p>Item price ($)<span id="item-price">35.75</span></p>
         </div>
 
         <p>seller: ABC comp.</p>
@@ -187,12 +143,10 @@
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('R-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-12">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -205,8 +159,8 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-13">L-shoes</span></p>
-          <p>Item price ($)<span id="item-price-13">30.00</span></p>
+          <p>Item name:<span class="product-name">L-shoes</span></p>
+          <p>Item price ($)<span id="item-price">30.00</span></p>
         </div>
 
         <p>seller: ABC comp.</p>
@@ -283,12 +237,10 @@
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('L-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-13">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -301,8 +253,8 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-14">X-shoes</span></p>
-          <p>Item price ($)<span id="item-price-14">25.00</span></p>
+          <p>Item name:<span class="product-name">X-shoes</span></p>
+          <p>Item price ($)<span id="item-price">25.00</span></p>
         </div>
 
         <p>seller: ABC comp.</p>
@@ -379,12 +331,10 @@
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('X-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-14">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -397,8 +347,8 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-15">B-shoes</span></p>
-          <p>Item price ($)<span id="item-price-15">19.99</span></p>
+          <p>Item name:<span class="product-name">B-shoes</span></p>
+          <p>Item price ($)<span id="item-price">19.99</span></p>
         </div>
 
         <p>seller: ABC comp.</p>
@@ -475,12 +425,10 @@
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('B-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-15">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -493,8 +441,8 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-16">Y-shoes</span></p>
-          <p>Item price ($)<span id="item-price-16">25.00</span></p>
+          <p>Item name:<span class="product-name">Y-shoes</span></p>
+          <p>Item price ($)<span id="item-price">25.00</span></p>
         </div>
 
         <p>seller: ABC comp.</p>
@@ -571,12 +519,10 @@
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('Y-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-16">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -589,8 +535,8 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-17">A-shoes</span></p>
-          <p>Item price ($)<span id="item-price-17">25.00</span></p>
+          <p>Item name:<span class="product-name">A-shoes</span></p>
+          <p>Item price ($)<span id="item-price">25.00</span></p>
         </div>
 
         <p>seller: ABC comp.</p>
@@ -667,12 +613,10 @@
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('A-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-17">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -685,8 +629,8 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-18">W-shoes</span></p>
-          <p>Item price ($)<span id="item-price-18">25.00</span></p>
+          <p>Item name:<span class="product-name">W-shoes</span></p>
+          <p>Item price ($)<span id="item-price">25.00</span></p>
         </div>
 
         <p>seller: ABC comp.</p>
@@ -763,12 +707,10 @@
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('W-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-18">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -781,8 +723,8 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-19">Q-shoes</span></p>
-          <p>Item price ($)<span id="item-price-19">25.00</span></p>
+          <p>Item name:<span class="product-name">Q-shoes</span></p>
+          <p>Item price ($)<span id="item-price">25.00</span></p>
         </div>
 
         <p>seller: ABC comp.</p>
@@ -859,12 +801,10 @@
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('Q-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-19">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
 
@@ -877,8 +817,8 @@
     >
       <div class="item-descript">
         <div>
-          <p>Item name:<span class="product-name-20">G-shoes</span></p>
-          <p>Item price ($)<span id="item-price-20">25.00</span></p>
+          <p>Item name:<span class="product-name">G-shoes</span></p>
+          <p>Item price ($)<span id="item-price">25.00</span></p>
         </div>
 
         <p>seller: ABC comp.</p>
@@ -955,17 +895,12 @@
         </label>
       </div>
       <div class="item-cart-button">
-        <button class="add-cart-button" onclick="addingToCart('G-shoes', this)">
-          Add to cart
-        </button>
-        <button class="counter-minus">-</button>
+        <button type="button" class="add-cart-button">Add to cart</button>
+        <button type="button" class="counter-minus">-</button>
         <span class="item-count itemTotal-20">0</span>
-        <button class="counter-add">+</button>
+        <button type="button" class="counter-add">+</button>
       </div>
     </li>
   </ul>
-  <button type="button" class="carousel-button right-shoes">
-    <i id="right-Shoes" class="fas fa-chevron-right"></i>
-  </button>
   <div class="mobile-main-panel-slider-dots-2"></div>
 </div>
