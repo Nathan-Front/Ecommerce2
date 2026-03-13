@@ -12,6 +12,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .item-title-category-lower {
@@ -72,6 +73,7 @@
     display: block;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     border-radius: 0.25em;
+    pointer-events: none; /*Needed to be able to do the click function*/
 }
 
 .item-panel-lower-div-2>button>span {
@@ -79,6 +81,7 @@
     vertical-align: middle;
     padding: 0;
     margin: 5px 0 0 0;
+    pointer-events: none; /*Needed to be able to do the click function*/
 }
 
 .item-panel-lower-div-2 button:first-child span,
@@ -114,4 +117,25 @@
 .item-panel-lower div a {
     text-decoration: none;
     font-size: 0.8em;
+}
+
+.popup-wrap{
+    width: clamp(250px, 40vw, 400px);
+    height: clamp(300px, 50vh, 450px);
+    background-color: white;
+    position: fixed;
+    top: 5%;
+    left: 50%;
+     transform: translate(-50%, -5%);
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    overflow-y: auto;
+    padding: 3rem;
+    transition:  1s  ease-in;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.popup-image{
+     width: 100%;
+     height: 100%;
 }
