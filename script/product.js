@@ -25,11 +25,23 @@ function addItemToCart(){
         const itemPrice = addItem.querySelector(".item-price").textContent;
         const itemSeller = addItem.querySelector(".item-seller").textContent;
         const itemPic = addItem.querySelector(".item-img").src;
-        const selectedSize = addItem.querySelector(".radio-button:checked");
+        const radioBtnSize = addItem.querySelector(".radio-button:checked");
         let size = "";
-        if(selectedSize){
-        size = selectedSize.value;
+        if (radioBtnSize) {
+            size = radioBtnSize.value;
         }
+
+        const dropdown = addItem.querySelector(".shoe-size-dropdown");
+        if (dropdown &&  dropdown.selectedIndex > 0) {
+            const selectedOption = dropdown.options[dropdown.selectedIndex];
+            size = selectedOption.dataset.size;
+        }
+
+        if (!size) {
+            alert("Please select a size.");
+            return;
+        }
+        console.log(size);
         const itemCount = addItem.querySelector(".item-count");
         const quantity = parseInt(itemCount.textContent) || 1;
         const cartContent = JSON.parse(localStorage.getItem("cartContent")) || [];

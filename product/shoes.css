@@ -1,3 +1,14 @@
-.item-size> label{
-    font-size: clamp(1rem 1vw, 2rem);
+.shoe-size-container{
+    display: flex;
+    flex-direction: column;
+}
+.shoe-label{
+    margin: 0 0 3px 0 !important;
+    font-size: clamp(0.8rem, 1.1vw, 1.5rem);
+    font-weight: bolder;
+}
+.shoe-size-dropdown{
+    height: 20px;
+    font-size: clamp(0.7rem, 1vw, 1.3rem);
+    margin: 0 0 10px 0;
 }
