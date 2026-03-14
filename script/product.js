@@ -64,6 +64,7 @@ function addItemToCart(){
                 totalP: quantity * Number(itemPrice)
             });
         }
+        alert("Added to cart");
         localStorage.setItem("cartContent", JSON.stringify(cartContent));
         updateCartCounter();
         fetchCartContent();
@@ -115,7 +116,7 @@ function updateCartCounter(){
 function otherProduct(){
     document.addEventListener("click", (e)=>{
 
-        const btn = e.target.closest(".best-offer-button");
+        const btn = e.target.closest(".other-offer-button");
         const popup = document.querySelector(".popup-wrap");
 
         // If clicking a product button
@@ -128,20 +129,43 @@ function otherProduct(){
             const container = document.createElement("div");
             container.classList.add("popup-wrap");
 
+            const closePop = document.createElement("button");
+            closePop.classList = "Close-popup-container";
+            closePop.textContent = "Close";
+
             const img = document.createElement("img");
             img.classList.add("popup-image","popup-img");
             img.src = itemImg;
-
+   
             container.appendChild(img);
+            container.appendChild(closePop);
             document.body.append(container);
 
+            document.body.classList.add("no-scroll");
+            const overlay = document.getElementById("overlay");
+            overlay.classList.toggle("cover");
+            closePopup();
             return;
         }
+    });
+}
+function closePopup(){
+    const closeBtn = document.querySelector(".Close-popup-container");
+    if(!closeBtn) return;
+    closeBtn.addEventListener("click", (e)=>{
+        e.target.closest(".popup-wrap").remove();
+        closeAll();
+    });
+}
 
-        // Clicked somewhere else → close popup
-        if(popup && !e.target.closest(".popup-wrap")){
-            popup.remove();
+function otherProductLinks(){
+    document.addEventListener("click", (e) =>{
+        const btn = e.target;
+        if(btn){
+            const linkWrap = btn.closest(".item-panel-lower");
+            const linkContent = linkWrap.querySelector(".other-titles").textContent;
+            alert("Link to " + `${linkContent}` + " page");
         }
-
+        
     });
 }

@@ -29,6 +29,7 @@ function deleteItemInCart(){
         const itemId = Number(delItem.dataset.id); //Use the special ID of item
         let cart = JSON.parse(localStorage.getItem("cartContent")) || [];
         cart = cart.filter(item => item.itemId !== itemId); //Filter out the item
+        alert("Item deleted");
         localStorage.setItem("cartContent", JSON.stringify(cart)); //Resave to update the localstorage
         fetchCartContent();
         updateCartCounter();

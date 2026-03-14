@@ -73,7 +73,6 @@
     display: block;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     border-radius: 0.25em;
-    pointer-events: none; /*Needed to be able to do the click function*/
 }
 
 .item-panel-lower-div-2>button>span {
@@ -120,22 +119,49 @@
 }
 
 .popup-wrap{
-    width: clamp(250px, 40vw, 400px);
-    height: clamp(300px, 50vh, 450px);
+    width: clamp(300px, 40%, 400px);
     background-color: white;
     position: fixed;
-    top: 5%;
+    top: 50%;
     left: 50%;
-     transform: translate(-50%, -5%);
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     z-index: 999;
     overflow-y: auto;
-    padding: 3rem;
-    transition:  1s  ease-in;
+    padding: 2rem;
+    transition:  0.4s  ease-in;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border-radius: 0.25em;
+}
+
+.Close-popup-container{
+    width: clamp(80px, 40%, 120px);
+    padding: 3px 15px;
+    margin: 15px auto 0 auto;
+    font-size: clamp(1rem, 1.5vw, 1.9rem);
+    border: none;
+    background-color: #87ceeb;
+    border-radius: 0.25em;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+.Close-popup-container:hover{
+    transform: translateY(-2px);
+    transition: 0.3s ease;
 }
 .popup-image{
-     width: 100%;
-     height: 100%;
+    width: 100%;
+    height: clamp(180px, 20vw, 400px);
+    border-radius: 0.25em;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+}
+@media only screen and (max-width: 768px){
+    .popup-wrap{
+        padding: 1.5rem;
+    }
+}
+@media only screen and (max-width: 599px){
+    .popup-wrap{
+        padding: 1rem;
+    }
 }

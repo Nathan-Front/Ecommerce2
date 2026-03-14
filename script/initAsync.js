@@ -31,5 +31,6 @@ async function initAsync(){
     paymentSummary();
 
     otherProduct();
+    otherProductLinks();
 }
 document.addEventListener("DOMContentLoaded", initAsync);
