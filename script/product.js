@@ -161,11 +161,10 @@ function closePopup(){
 function otherProductLinks(){
     document.addEventListener("click", (e) =>{
         const btn = e.target;
-        if(btn){
-            const linkWrap = btn.closest(".item-panel-lower");
-            const linkContent = linkWrap.querySelector(".other-titles").textContent;
-            alert("Link to " + `${linkContent}` + " page");
-        }
-        
+        const linkWrap = btn.closest(".item-panel-lower-link");
+        if(!linkWrap) return;
+        const linkContent = linkWrap.querySelector(".lower-panel-item-card-links").textContent;
+        alert("Link to " + `${linkContent}` + " page");
+            
     });
 }

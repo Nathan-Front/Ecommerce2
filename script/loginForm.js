@@ -1,12 +1,14 @@
 //Loggin account function
 function loginAccount(){
     const loginForm = document.getElementById("mobile-form-submit");
-    loginForm.addEventListener("submit", (e)=>{
+    loginForm.addEventListener("submit", async (e)=>{
         e.preventDefault();
         const inputUser = document.getElementById("input-user-name");
         const inputPass = document.getElementById("input-user-pass");
         const users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
-        const existUser = users.find(user => user.userName === inputUser.value && user.userPassword === inputPass.value);
+        const hashedInput = await hashPassword(inputPass.value);
+
+        const existUser = users.find(user => user.userName === inputUser.value && user.userPassword === hashedInput);
         const userLogIndicator = "./images/logo/profile-user-svgrepo-com-green.svg";
         if(existUser){
             localStorage.setItem("loggedUser", JSON.stringify({
@@ -55,7 +57,7 @@ function restoreLoggedUser(){
             logIndicator.src = savedUser.indicator;
         }
     }
-
+    //Remember me 
     const savedRemember = JSON.parse(localStorage.getItem("rememberUserName"));
     if(savedRemember){
         const inputUser = document.getElementById("input-user-name");
@@ -67,9 +69,21 @@ function restoreLoggedUser(){
             rememberMe.checked = true;
         }
     }
-
+    //Profile picture at mobile viewport
     const profilePic = document.getElementById('profile-picture');
     if (savedUser?.user.profileImage) {
         profilePic.src = savedUser.user.profileImage;
     }
+}
+
+//For long user name at hover tooltip display
+function hoverLongNameUsers(){
+    const userNameHover = document.querySelector('.user-name-logged');
+    userNameHover.addEventListener('mouseenter', () => {
+    if (userNameHover.scrollWidth > userNameHover.clientWidth) { //if the logged user name is longer than the displayed
+        userNameHover.title = userNameHover.textContent; //Display the full user name
+    }else{
+        userNameHover.removeAttribute('title');
+    }
+    });
 }

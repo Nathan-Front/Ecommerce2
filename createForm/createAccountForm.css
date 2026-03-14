@@ -67,15 +67,7 @@
     margin: 0 auto;
 }
 
-/*When email input format is wrong*/
-.error {
-  color: red;
-  font-size: 0.6rem;
-  margin: 0% 0% 0% 5%;
-}
-input.error-border {
-  border: 2px solid red;
-}
+
 .login-create{
     width: 90%;
     display: flex;

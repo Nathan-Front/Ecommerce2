@@ -162,3 +162,14 @@ function backToTop(){
   });
 }
 
+function showFullText(){
+    //When hovering a long logged in user
+const userNameHover = document.querySelector('.user-name-logged');
+userNameHover.addEventListener('mouseenter', () => {
+  if (userNameHover.scrollWidth > userNameHover.clientWidth) { //if the logged in user name is longer than the displayed
+    userNameHover.title = userNameHover.textContent; //Display the full user name
+  } else {
+    userNameHover.removeAttribute('title');
+  }
+});
+}

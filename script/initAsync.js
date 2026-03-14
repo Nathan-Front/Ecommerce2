@@ -20,6 +20,7 @@ async function initAsync(){
     loginCreateForm();
     createAccount();
     loginAccount();
+    hoverLongNameUsers();
     uploadProfile();
     signOut();
     
@@ -32,5 +33,6 @@ async function initAsync(){
 
     otherProduct();
     otherProductLinks();
+    
 }
 document.addEventListener("DOMContentLoaded", initAsync);
