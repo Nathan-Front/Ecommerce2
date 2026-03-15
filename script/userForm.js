@@ -41,6 +41,11 @@ function signOut(){
     const signOutBtn = document.querySelectorAll(".sign-out");
     signOutBtn.forEach(btn =>{
         btn.addEventListener("click", ()=>{
+            const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+            if(!loggedUser) return;
+            //const cart = loggedUser.userCart || [];
+            localStorage.removeItem("tempCartContent");
+
             localStorage.removeItem("loggedUser");
             alert("Signed out");
             window.location.href = "index.html";

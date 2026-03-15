@@ -27,7 +27,8 @@ function createAccount(){
             userPassword: hashedPass,
             userMail: inputMail.value,
             userContact: inputContact.value,
-            dateRegistery: dateRegistered
+            dateRegistery: dateRegistered,
+            cart: []
         };
         users.push(userRegister);
         localStorage.setItem("registeredUsers", JSON.stringify(users));

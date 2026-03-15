@@ -41,7 +41,7 @@ function addItemToCart(){
             alert("Please select a size.");
             return;
         }
-        console.log(size);
+  
         const itemCount = addItem.querySelector(".item-count");
         const quantity = parseInt(itemCount.textContent) || 1;
         const cartContent = JSON.parse(localStorage.getItem("cartContent")) || [];
@@ -61,11 +61,12 @@ function addItemToCart(){
                 itemImg: itemPic,
                 itemSize: size,
                 Qty: quantity,
-                totalP: quantity * Number(itemPrice)
+                totalP: quantity * Number(itemPrice),
+                cart: []
             });
         }
         alert("Added to cart");
-        localStorage.setItem("cartContent", JSON.stringify(cartContent));
+        saveToCartStorage(cartContent);
         updateCartCounter();
         fetchCartContent();
     })
@@ -97,7 +98,19 @@ function itemCount(){
 
 //For cart counter
 function updateCartCounter(){
-    const cart = JSON.parse(localStorage.getItem("cartContent")) || [];
+    //const cart = JSON.parse(localStorage.getItem("cartContent")) || [];
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    const tempCart = JSON.parse(localStorage.getItem("tempCartContent"));
+    let cart = [];
+
+    if(loggedUser){
+        const userData = locateCartOfUser();
+        if(!userData) return;
+        let {users, userIndex} = userData;
+        cart = users[userIndex].cart || [];
+    }else{
+        cart = tempCart || [];
+    }
     let totalItems = 0;
     cart.forEach(item=>{
         totalItems += item.Qty || 1; //fallback to 1 if 0 null or empty
@@ -111,6 +124,76 @@ function updateCartCounter(){
         cartCounter.textContent = totalItems;
     }
 }
+
+//finding the user in the user registry
+function locateCartOfUser(){
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    if(!loggedUser) return;
+    let users = JSON.parse(localStorage.getItem("registeredUsers"));
+    if(!Array.isArray(users)) users = [];
+    const userIndex = users.findIndex(user => user.registryID === loggedUser.user.registryID);
+    if (userIndex === -1) return;
+    users[userIndex].cart = users[userIndex].cart || [];
+    return { users, userIndex };
+}
+
+//Temporary storage
+function saveToCartStorage(cartContent) {
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    if(loggedUser){ //Cart of logged user
+        const userData = locateCartOfUser();
+        if(!userData) return;
+        let {users, userIndex} = userData;
+        if(Array.isArray(cartContent)){ //Read existing array
+            users[userIndex].cart.push(...cartContent); //Add new item to it if 2 or more
+        }else{
+            users[userIndex].cart.push(cartContent); //Add new item one at a time
+        }
+        localStorage.setItem("registeredUsers", JSON.stringify(users));
+    }
+    else{ //Temporary cart for logged out user
+        let tempCart = JSON.parse(localStorage.getItem("tempCartContent")) || [];
+        if(Array.isArray(cartContent)){
+            tempCart.push(...cartContent);
+        }else{
+            tempCart.push(cartContent);
+        }
+        localStorage.setItem("tempCartContent", JSON.stringify(tempCart));
+    }
+}
+
+/*
+function addCartContentToUser(){
+    const tempCart = JSON.parse(localStorage.getItem("tempCartContent")) || [];
+    const loggedUser = JSON.parse(localStorage.getItem("registeredUsers"));
+    if (!loggedUser) return;
+    let cart = loggedUser.cart || [];
+    if (tempCart.length > 0) {
+        cart.push(...tempCart);
+        loggedUser.cart = cart;
+        localStorage.setItem("registeredUsers", JSON.stringify(loggedUser));
+        localStorage.removeItem("tempCartContent");
+    }
+    return cart;
+}*/
+
+//Combine items from temporary to the cart of users when logging in
+function mergeCartOnLogin(){
+    const tempCart = JSON.parse(localStorage.getItem("tempCartContent")) || [];
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+
+    if(!loggedUser || tempCart.length === 0) return;
+    const userData = locateCartOfUser();
+    if(!userData) return;
+    let {users, userIndex} = userData;
+    if(userIndex === -1) return;
+    users[userIndex].cart = users[userIndex].cart || [];
+    users[userIndex].cart.push(...tempCart);
+    localStorage.setItem("registeredUsers", JSON.stringify(users));
+    localStorage.removeItem("tempCartContent");
+}
+
+
 
 //For bestoffer and outdoors content
 function otherProduct(){

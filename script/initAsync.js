@@ -26,6 +26,7 @@ async function initAsync(){
     
     addItemToCart();
     itemCount();
+    await loadCartTemplate();
     await fetchCartContent();
     updateCartCounter();
     deleteItemInCart();
