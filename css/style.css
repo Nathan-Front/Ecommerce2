@@ -17,6 +17,8 @@ body{
     font-family: Helvetica, sans-serif;
     width: 100%;
     height: 100%;
+    gap: 2em;
+    flex-wrap: wrap;
     background: linear-gradient(to bottom, #add8e6 0%, white  100%, transparent 50%, transparent 100%);
 }
 @media only screen and (max-width: 768px){
@@ -82,54 +84,6 @@ li{
         height: auto;
         margin: 0% 0% 10% 0%;
         overflow: hidden;
-    }
-    .left-upper, .right-upper{
-        display: none;
-    }
-    .main-panel-upper{
-        display: none;
-        height: 0;
-        margin: 0;
-        padding: 0;
-    }
-    .main-panel-upper-first,
-    .main-panel-upper-second,
-    .main-panel-upper-third{
-        width: 60%;
-        height: fit-content;
-        
-    }
-    .new-upper-panel{
-       width: 90%;
-       height: 100%;
-       display: flex;
-       margin: 2% auto;
-       border-radius: 0.25em;
-       overflow: hidden;
-    }
-    .new-upper-panel div{
-        min-width: 100%;
-        height: 5em;
-        transition: transform 0.4s ease;
-        background-size: cover;
-
-        overflow: hidden;
-    }
-    .upper-carousel{
-        display: flex;
-        height: 100%;
-        touch-action: pan-y;
-    }
-    .main-panel-upper-h2{
-        position: absolute;
-        bottom: 5%;
-        left: 2%;
-        font-size: 0.95em;
-        margin: 0% 0% 0% 0%;
-        padding: 0;
-    }
-    .upper-carousel p, .upper-carousel button{
-        display: none;
     }
 }
 .cart-content{

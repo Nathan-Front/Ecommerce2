@@ -7,22 +7,18 @@
     flex-direction: column;
 }
 .upper-carousel-wrap{
-    position: absolute;
-    inset: 0;
     margin: 0;
     padding: 0;
 }
 .upper-carousel-wrap> div> img{
     width: 100%;
-    min-width: 100%;
-    margin-top: 10vh;
-    height: clamp(300px, 80vh, 500px);
+    height: clamp(300px, 60vw, 500px);
 }
 .main-panel-upper-h2{
     font-size: clamp(0.9rem, 2vw, 1.5rem);
     width: 90%;
     position: absolute;  
-    top: 20rem;
+    bottom: 14rem;
     left: 4rem;
 }
 .upper-text{
@@ -30,7 +26,7 @@
     font-weight: bolder;
     width: 90%;
     position: absolute;  
-    top: 22rem;
+    bottom: 12rem;
     left: 4rem;
 }
 .upper-carousel-button{
@@ -43,7 +39,6 @@
     position: absolute;
     bottom: 8rem;
     left: 4rem;
-    z-index: 99;
     background-color: #ff7a18;
     color: white;
 }
@@ -51,38 +46,16 @@
     cursor: pointer;
     background-color: #e85d04;
 }
-@media only screen and (max-width: 599px){
-    .upper-carousel-wrap> div> img{
-        margin-top: 4vh;
-    }
-    .main-panel-upper-h2,
-    .upper-text{
-        display: none;
-    }
-    .upper-carousel-button{
-        position: absolute;  
-        margin: 9rem 0 0 2rem;
-        top: 100px;
-        left: 0;
-        z-index: 9999;
-    }
-}
-@media (min-width: 600px) and (max-width:768px){
-    .main-panel-upper-h2{
-        margin: 15rem 0 0 2rem;
-    }
-    .upper-text{
-        margin: 17rem 0 0 2rem;
-    }
-    .upper-carousel-button{ 
-        bottom: 10rem;
-    }
-}
+
 .panel-upper{
     width: 100%;
+    
     flex-direction: column;
+    display: flex;
+    position: relative;
 }
-.third-panel-wrap{
+.third-panel-wrap> h2,
+.third-panel-wrap> p{
     color: white;
     text-shadow: 1px 1px 0 #333,
         -1px -1px 0 #333,
@@ -93,6 +66,7 @@
     flex-direction: column;
 }
 .upper-carousel{
+   
     position: absolute;
     inset: 0;
     opacity: 0;
@@ -100,16 +74,48 @@
     pointer-events: none; /*Needed to be able to do the click function*/
     transition: opacity 0.6s ease;
 }
-.upper-carousel.upper-display{
-    opacity: 1;
-    pointer-events: auto;
-}
 .upper-carousel.upper-hide{
     opacity: 0;
 }
-.upper-carousel-buttons{
+.upper-carousel.upper-display{
+    opacity: 1;
+    pointer-events: auto;
     display: flex;
-    width: 100%;
-    max-height: 10%;
 }
 
+
+@media only screen and (max-width: 599px){
+    .main-panel-upper{
+        min-height: 300px;
+        height: 350px;
+    }
+    .upper-carousel-wrap{
+        width: 100%;
+    }
+    .upper-carousel-wrap > div > img{
+        width: 100%;
+        min-height: 300px;
+        height: 350px;
+        margin-top: 3rem;
+    }
+    .main-panel-upper-h2,
+    .upper-text{
+        display: none;
+    }
+    .upper-carousel-button{
+        left: 2rem;
+        bottom: 2rem;
+    }
+    
+}
+@media (min-width: 600px) and (max-width:768px){
+    .main-panel-upper-h2{
+        bottom: 7.5rem;
+    }
+    .upper-text{
+        bottom: 6rem;
+    }
+    .upper-carousel-button{ 
+        bottom: 2rem;
+    }
+}
