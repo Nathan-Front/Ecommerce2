@@ -20,6 +20,7 @@ async function initAsync(){
     loginCreateForm();
     createAccount();
     loginAccount();
+    forgotPassword();
     hoverLongNameUsers();
     uploadProfile();
     signOut();

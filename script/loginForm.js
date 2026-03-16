@@ -94,3 +94,10 @@ function hoverLongNameUsers(){
 }
 
 
+//Forgot password
+function forgotPassword(){
+    const forgotPassBtn = document.getElementById("forgot-password");
+    forgotPassBtn.addEventListener("click", ()=>{
+        alert("Link to forgot password form");
+    });
+}
