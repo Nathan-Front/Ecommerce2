@@ -31,7 +31,11 @@
     margin: 0% auto;
     height: auto;
 }
-
+@media only screen and (max-width: 599px){
+    .lower-panel-content{
+        width: 90%;
+    }
+}
 .item-panel-lower{
     width: 100%;
     height: auto;

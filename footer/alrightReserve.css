@@ -6,6 +6,7 @@
     border-top: 1px #87ceeb solid;
     background-color: #4682b4;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -30,5 +31,12 @@
     }
     .alright-reserve> a> img{
         margin-bottom: 4px;
+    }
+}
+@media only screen and (max-width: 768px){
+    .alright-reserve> p{
+        width: 100%;
+        text-align: center;
+        margin: 0;
     }
 }
