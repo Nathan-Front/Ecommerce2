@@ -9,9 +9,9 @@ async function loadCartTemplate(){
 async function fetchCartContent(){
     const cartWrap = document.getElementById("checkout-items");
     if(!cartWrap) return;
-    let cart = cartArrayCondition();
+    let cart = cartArrayCondition(); //Select which array to use
     
-    cartWrap.innerHTML = ""; //CLear content of container 
+    cartWrap.innerHTML = ""; //CLear content of container first
     cart.forEach(item =>{
         cartWrap.insertAdjacentHTML("beforeend", cartTemplate);
         const lastItem = cartWrap.lastElementChild;
@@ -35,19 +35,18 @@ function deleteItemInCart(){
         const itemId = Number(delItem.dataset.id); //Use the special ID of item
 
         const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-        let cart = cartArrayCondition();
+        let cart = cartArrayCondition(); //Select which array to use
         cart = cart.filter(item => item.itemId !== itemId); //Filter out the item
         alert("Item deleted");
-        if(loggedUser){
-            const userData = locateCartOfUser();
+        if(loggedUser){ //Cart of logged user
+            const userData = locateCartOfUser(); //Use registeredUsers cart array
             if(!userData) return;
             let {users, userIndex} = userData;
-            users[userIndex].cart = cart;
+            users[userIndex].cart = cart; //Pass the unfiltered item here
             localStorage.setItem("registeredUsers", JSON.stringify(users));
-        }else{
+        }else{ //Temporary cart for logged out user
             localStorage.setItem("tempCartContent", JSON.stringify(cart));
         }
-        
         fetchCartContent();
         updateCartCounter();
     });
@@ -58,13 +57,13 @@ function cartArrayCondition(){
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     const tempCart = JSON.parse(localStorage.getItem("tempCartContent")) || [];
     if(loggedUser){
-        const userData = locateCartOfUser();
+        const userData = locateCartOfUser(); //Use registeredUsers cart array
         if(!userData) return [];
         const { users, userIndex } = userData;
         return users[userIndex].cart || [];
 
-    } else {
-        return tempCart;
+    }else{
+        return tempCart; //Use temporary cart
     }
 }
 
@@ -73,12 +72,16 @@ function paymentSummary(){
     const paymentBtn = document.getElementById("to-payment");
     paymentBtn.addEventListener("click", ()=>{
         const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-        if(loggedUser){
-        const cart = JSON.parse(localStorage.getItem("cartContent")) || [];
-        const totalPrice = cart.reduce((sum, item) => sum + item.totalP, 0); //array.reduce((accumulator, currentItem) => {return newValue;}, initialValue);
-        alert("Total balance is: $" + `${totalPrice}`);
-        }else{
+        if(!loggedUser){
             alert("Login is needed");
+            return;
         }
+        const users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+        const userIndex = users.findIndex(user => user.registryID === loggedUser.user.registryID); //Compare logged user ID and registeredUsers ID
+        if (userIndex === -1) return;
+
+        const cart = users[userIndex].cart || [];
+        const totalPrice = cart.reduce((sum, item) => sum + item.totalP, 0); //array.reduce((accumulator, currentItem) => {return newValue;}, initialValue);
+        alert("Total balance is: $" + totalPrice.toFixed(2));
     }); 
 }

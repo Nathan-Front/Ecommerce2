@@ -27,46 +27,44 @@ function addItemToCart(){
         const itemPic = addItem.querySelector(".item-img").src;
         const radioBtnSize = addItem.querySelector(".radio-button:checked");
         let size = "";
-        if (radioBtnSize) {
+        if(radioBtnSize){
             size = radioBtnSize.value;
         }
-
         const dropdown = addItem.querySelector(".shoe-size-dropdown");
-        if (dropdown &&  dropdown.selectedIndex > 0) {
+        if(dropdown &&  dropdown.selectedIndex > 0){
             const selectedOption = dropdown.options[dropdown.selectedIndex];
             size = selectedOption.dataset.size;
         }
-
-        if (!size) {
+        if(!size){
             alert("Please select a size.");
             return;
         }
-  
+
         const itemCount = addItem.querySelector(".item-count");
         const quantity = parseInt(itemCount.textContent) || 1;
-        const cartContent = JSON.parse(localStorage.getItem("cartContent")) || [];
-        const existingItem = cartContent.find(
-            item => item.itemN === itemName && item.itemSize === size //Add current item even if its already in cart, only when size is different
-        );                                                            //Else just increase quantity of it
+        const cart = cartArrayCondition();
+        const existingItem = cart.find(
+            item => item.itemN === itemName && item.itemSize === size //Search same item with same size selected
+        ); 
+
+        const price = Number(itemPrice);
         if(existingItem){
             existingItem.Qty += quantity; //Adding of quantity
-            existingItem.totalP = existingItem.Qty * Number(itemPrice); //Total price of item
-        
+            existingItem.totalP = existingItem.Qty * existingItem.itemP; //Total price of item
         }else{
-            cartContent.push({
+            cart.push({
                 itemId: Date.now(),
                 itemN: itemName,
-                itemP: itemPrice,
+                itemP: price,
                 itemS: itemSeller,
                 itemImg: itemPic,
                 itemSize: size,
                 Qty: quantity,
-                totalP: quantity * Number(itemPrice),
-                cart: []
+                totalP: quantity * price,
             });
         }
         alert("Added to cart");
-        saveToCartStorage(cartContent);
+        saveToCartStorage(cart); //Add the item in here
         updateCartCounter();
         fetchCartContent();
     })
@@ -102,9 +100,8 @@ function updateCartCounter(){
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     const tempCart = JSON.parse(localStorage.getItem("tempCartContent"));
     let cart = [];
-
     if(loggedUser){
-        const userData = locateCartOfUser();
+        const userData = locateCartOfUser(); //Use registeredUsers cart array
         if(!userData) return;
         let {users, userIndex} = userData;
         cart = users[userIndex].cart || [];
@@ -113,7 +110,7 @@ function updateCartCounter(){
     }
     let totalItems = 0;
     cart.forEach(item=>{
-        totalItems += item.Qty || 1; //fallback to 1 if 0 null or empty
+        totalItems += item.Qty;
     });
     const mobileCartCounter = document.querySelector(".cart-counter");
     const cartCounter = document.getElementById("added-to-cart");
@@ -131,7 +128,7 @@ function locateCartOfUser(){
     if(!loggedUser) return;
     let users = JSON.parse(localStorage.getItem("registeredUsers"));
     if(!Array.isArray(users)) users = [];
-    const userIndex = users.findIndex(user => user.registryID === loggedUser.user.registryID);
+    const userIndex = users.findIndex(user => user.registryID === loggedUser.user.registryID); //Compare logged user Id in registeredUsers
     if (userIndex === -1) return;
     users[userIndex].cart = users[userIndex].cart || [];
     return { users, userIndex };
@@ -141,41 +138,16 @@ function locateCartOfUser(){
 function saveToCartStorage(cartContent) {
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     if(loggedUser){ //Cart of logged user
-        const userData = locateCartOfUser();
+        const userData = locateCartOfUser(); //Use registeredUsers cart array
         if(!userData) return;
         let {users, userIndex} = userData;
-        if(Array.isArray(cartContent)){ //Read existing array
-            users[userIndex].cart.push(...cartContent); //Add new item to it if 2 or more
-        }else{
-            users[userIndex].cart.push(cartContent); //Add new item one at a time
-        }
+        users[userIndex].cart = cartContent;
         localStorage.setItem("registeredUsers", JSON.stringify(users));
     }
     else{ //Temporary cart for logged out user
-        let tempCart = JSON.parse(localStorage.getItem("tempCartContent")) || [];
-        if(Array.isArray(cartContent)){
-            tempCart.push(...cartContent);
-        }else{
-            tempCart.push(cartContent);
-        }
-        localStorage.setItem("tempCartContent", JSON.stringify(tempCart));
+        localStorage.setItem("tempCartContent", JSON.stringify(cartContent));
     }
 }
-
-/*
-function addCartContentToUser(){
-    const tempCart = JSON.parse(localStorage.getItem("tempCartContent")) || [];
-    const loggedUser = JSON.parse(localStorage.getItem("registeredUsers"));
-    if (!loggedUser) return;
-    let cart = loggedUser.cart || [];
-    if (tempCart.length > 0) {
-        cart.push(...tempCart);
-        loggedUser.cart = cart;
-        localStorage.setItem("registeredUsers", JSON.stringify(loggedUser));
-        localStorage.removeItem("tempCartContent");
-    }
-    return cart;
-}*/
 
 //Combine items from temporary to the cart of users when logging in
 function mergeCartOnLogin(){
@@ -183,47 +155,48 @@ function mergeCartOnLogin(){
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
     if(!loggedUser || tempCart.length === 0) return;
-    const userData = locateCartOfUser();
+    const userData = locateCartOfUser(); //Use registeredUsers cart array
     if(!userData) return;
     let {users, userIndex} = userData;
     if(userIndex === -1) return;
     users[userIndex].cart = users[userIndex].cart || [];
-    users[userIndex].cart.push(...tempCart);
+    tempCart.forEach(tempItem =>{
+        const existingItem = users[userIndex].cart.find(item =>
+        item.itemN === tempItem.itemN &&
+        item.itemSize === tempItem.itemSize
+        );
+        if(existingItem){
+            existingItem.Qty += tempItem.Qty;
+            existingItem.totalP = existingItem.Qty * existingItem.itemP;
+        }else{
+            users[userIndex].cart.push(tempItem); //If different add new item
+        }
+    });
     localStorage.setItem("registeredUsers", JSON.stringify(users));
     localStorage.removeItem("tempCartContent");
 }
 
 
-
 //For bestoffer and outdoors content
 function otherProduct(){
     document.addEventListener("click", (e)=>{
-
         const btn = e.target.closest(".other-offer-button");
         const popup = document.querySelector(".popup-wrap");
-
-        // If clicking a product button
+        //If clicking a product button
         if(btn){
-
             const itemImg = btn.querySelector(".other-img").src;
-
             if(popup) popup.remove();
-
             const container = document.createElement("div");
             container.classList.add("popup-wrap");
-
             const closePop = document.createElement("button");
             closePop.classList = "Close-popup-container";
             closePop.textContent = "Close";
-
             const img = document.createElement("img");
             img.classList.add("popup-image","popup-img");
             img.src = itemImg;
-   
             container.appendChild(img);
             container.appendChild(closePop);
             document.body.append(container);
-
             document.body.classList.add("no-scroll");
             const overlay = document.getElementById("overlay");
             overlay.classList.toggle("cover");
